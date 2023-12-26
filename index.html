@@ -8,13 +8,13 @@
   </head>
   <body>
     <header class="header">
+      <navbar id="navbar">
+        <a href="#start" class="navbar__link">Start</a>
+        <a href="#products" class="navbar__link">Products</a>
+        <a href="#cart" class="navbar__link bi bi-bag-heart">Cart</a>
+        <a href="#payment" class="navbar__link bi bi-cash-coin">Payment</a>
+      </navbar>
       <button id="hamburger-btn">Menu</button>
-    <navbar id="navbar">
-      <a href="#start" class="navbar__link">Start</a>
-      <a href="#products" class="navbar__link">Products</a>
-      <a href="#cart" class="navbar__link bi bi-bag-heart">Cart</a>
-      <a href="#payment" class="navbar__link bi bi-cash-coin">Payment</a>
-    </navbar>
     </header>
     <main>
       <section id="start">
@@ -29,11 +29,11 @@
           <img src="src/img/pre.jpg" alt="book" class="book-preview">
         </div>
       </section>
-      <section id="product"></section>
-      <section id="cart"></section>
-      <section id="payment"></section>
+      <section id="product">Products</section>
+      <section id="cart">Cart</section>
+      <section id="payment">Payment</section>
     </main>
-    <footer></footer>
+    <footer>Copyright &copy;</footer>
     <script type="module" src="/src/ts/main.ts"></script>
   </body>
 </html>

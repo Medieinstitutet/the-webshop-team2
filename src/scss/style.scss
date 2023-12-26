@@ -87,17 +87,19 @@
 }
 
 .book-preview {
-    max-width: 15rem;
-    border-radius: 10px;
-    margin-left: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100%;
+    border-radius: 50%;
     &:hover{
     transform: scale(1.05);
     }
     @include m.for-size(tablet){
       /* min-width: 20rem; */
       max-width: 22%;
-      border-radius: 10px;
-      margin-left: 0;
+      border-radius: 50%;
       &:hover{
       transform: scale(1.1);
       } 
@@ -114,4 +116,8 @@
 
 #payment{
   height: 100vh;
+}
+
+.cartIcon {
+    margin-left: 30rem;
 }

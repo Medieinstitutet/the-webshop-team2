@@ -96,8 +96,8 @@ export function createHtmlForCart(cartList: any) {
   const cartContainer = document.getElementById("cart-container");
 
   for (let i = 0; i < cartList.length; i++) {
-/*     const flowerBtnContainer2 = document.createElement("div");
- */
+    /*     const flowerBtnContainer2 = document.createElement("div");
+     */
     const flowerDiv = document.createElement("div");
     const flowerImg = document.createElement("img");
     const flowerTitle = document.createElement("h2");
@@ -112,14 +112,10 @@ export function createHtmlForCart(cartList: any) {
     flowerTitle.className = "flowerTitle";
     flowerPrice.className = "flowerPrice";
 
-/*     flowerContainer2?.appendChild(flowerBtnContainer2);
- */ cartContainer?.appendChild(flowerDiv);
+    /*     flowerContainer2?.appendChild(flowerBtnContainer2);
+     */ cartContainer?.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);
     flowerDiv.appendChild(flowerTitle);
     flowerDiv.appendChild(flowerPrice);
   }
 }
-
-
-
-

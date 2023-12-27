@@ -25,14 +25,12 @@ export const cartList: any = [];
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
 
+export const cartbtn = document.getElementById("cartbtn");
+export const cartContainer = document.getElementById(
+  "cart-container"
+) as HTMLDivElement;
 
-
-createHtmlForCart(cartList);
-
-export const cartbtn = document.getElementById ("cartbtn");
-export const cartContainer = document.getElementById ("cart-container") as HTMLDivElement;
-
-cartbtn?.addEventListener ("click", () => {
-  
+cartbtn?.addEventListener("click", () => {
   cartContainer.style.display = "block";
-})
+  createHtmlForCart(cartList);
+});

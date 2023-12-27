@@ -80,6 +80,7 @@ export function createHtmlForFlowers2(flowerList2: any) {
     function addToCart() {
       cartList.push(flowerList2[i]);
       console.log(cartList);
+      
     }
 
     flowerContainer2?.appendChild(flowerBtnContainer2);

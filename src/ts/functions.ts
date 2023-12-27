@@ -1,19 +1,19 @@
-import { cartList} from "./main";
+import { cartList } from "./main";
 
 export function toggleHamburger() {
   const navbar = document.getElementById("navbar");
   const toggleTest = () => {
     navbar?.classList.toggle("hamburger-on");
-    navbar?.classList.toggle("hamburger-off");
   };
   toggleTest();
 }
 
-export function createHtmlForFlowers (flowerList:any) {
+export function createHtmlForFlowers(flowerList: any) {
   const flowerContainer = document.getElementById("flower-container");
 
-  for (let i = 0; i < flowerList.length; i++){
-    console.log(flowerList[i]);
+  for (let i = 0; i < flowerList.length; i++) {
+    const flowerBtnContainer = document.createElement("div");
+
     const flowerDiv = document.createElement("div");
     const flowerImg = document.createElement("img");
     const flowerTitle = document.createElement("h2");
@@ -27,27 +27,35 @@ export function createHtmlForFlowers (flowerList:any) {
     flowerPrice.innerHTML = flowerList[i].price + " kr";
     flowerBuyBtn.innerHTML = "Buy";
 
-    
+    flowerDiv.className = "flowerDiv";
+    flowerImg.className = "flowerImg";
+    flowerTitle.className = "flowerTitle";
+    flowerInfo.className = "flowerInfo";
+    flowerPrice.className = "flowerPrice";
+    flowerBuyBtn.className = "flowerBuyBtn";
+
     flowerBuyBtn.addEventListener("click", addToCart);
-    function addToCart (){
+    function addToCart() {
       cartList.push(flowerList[i]);
       console.log(cartList);
     }
-    
-    
-    flowerContainer?.appendChild(flowerDiv);
+
+    flowerContainer?.appendChild(flowerBtnContainer);
+    flowerBtnContainer.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);
     flowerDiv.appendChild(flowerTitle);
     flowerDiv.appendChild(flowerInfo);
     flowerDiv.appendChild(flowerPrice);
-    flowerDiv.appendChild(flowerBuyBtn);
+    flowerBtnContainer?.appendChild(flowerBuyBtn);
   }
 }
 
-export function createHtmlForFlowers2 (flowerList2:any) {
-  const flowerContainer = document.getElementById("flower-container");
-  
-  for (let i = 0; i < flowerList2.length; i++){
+export function createHtmlForFlowers2(flowerList2: any) {
+  const flowerContainer2 = document.getElementById("flower-container2");
+
+  for (let i = 0; i < flowerList2.length; i++) {
+    const flowerBtnContainer2 = document.createElement("div");
+
     const flowerDiv = document.createElement("div");
     const flowerImg = document.createElement("img");
     const flowerTitle = document.createElement("h2");
@@ -61,18 +69,25 @@ export function createHtmlForFlowers2 (flowerList2:any) {
     flowerPrice.innerHTML = flowerList2[i].price + " kr";
     flowerBuyBtn.innerHTML = "Buy";
 
+    flowerDiv.className = "flowerDiv";
+    flowerImg.className = "flowerImg";
+    flowerTitle.className = "flowerTitle";
+    flowerInfo.className = "flowerInfo";
+    flowerPrice.className = "flowerPrice";
+    flowerBuyBtn.className = "flowerBuyBtn";
+
     flowerBuyBtn.addEventListener("click", addToCart);
-    function addToCart (){
+    function addToCart() {
       cartList.push(flowerList2[i]);
       console.log(cartList);
     }
 
-    flowerContainer?.appendChild(flowerDiv);
+    flowerContainer2?.appendChild(flowerBtnContainer2);
+    flowerBtnContainer2.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);
     flowerDiv.appendChild(flowerTitle);
     flowerDiv.appendChild(flowerInfo);
     flowerDiv.appendChild(flowerPrice);
-    flowerDiv.appendChild(flowerBuyBtn);
+    flowerBtnContainer2.appendChild(flowerBuyBtn);
   }
 }
-

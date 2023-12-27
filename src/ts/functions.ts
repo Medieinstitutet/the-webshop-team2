@@ -4,6 +4,5 @@ export function toggleHamburger() {
     navbar?.classList.toggle("hamburger-on");
     navbar?.classList.toggle("hamburger-off");
   };
-
   toggleTest();
 }

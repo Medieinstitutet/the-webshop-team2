@@ -34,3 +34,9 @@ cartbtn?.addEventListener("click", () => {
   cartContainer.style.display = "block";
   createHtmlForCart(cartList);
 });
+
+const closeCartContainer = document.getElementById("close-cart-container") as HTMLButtonElement;
+
+closeCartContainer.addEventListener("click", () =>{
+  cartContainer.style.display ="none";
+})

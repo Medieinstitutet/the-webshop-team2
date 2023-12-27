@@ -33,6 +33,9 @@ export const cartContainer = document.getElementById(
 cartbtn?.addEventListener("click", () => {
   cartContainer.style.display = "block";
   createHtmlForCart(cartList);
+/*   if (e.target == cartContainer){
+    cartContainer.style.display ="none";
+  } */
 });
 
 const closeCartContainer = document.getElementById("close-cart-container") as HTMLButtonElement;

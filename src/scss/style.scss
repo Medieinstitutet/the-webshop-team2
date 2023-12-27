@@ -156,8 +156,26 @@ top: 10%;
 left: 20%;
 min-width: 60%;
 min-height: 50%;
+max-height: 50%;
 background-color: beige;
+overflow: scroll;
+}
 
+.cartImg{
+width: 100px;
+height: 100px;
+}
+
+#close-cart-container{
+  position: fixed;
+}
+
+.cartDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  width: 60%;
 }
 
 #payment {

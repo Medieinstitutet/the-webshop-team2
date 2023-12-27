@@ -95,7 +95,7 @@ export function createHtmlForFlowers2(flowerList2: any) {
 
 export function createHtmlForCart(cartList: any) {
   const cartContainer = document.getElementById("cart-container");
-
+  let totalPrice = 0;
   for (let i = 0; i < cartList.length; i++) {
     /*     const flowerBtnContainer2 = document.createElement("div");
      */
@@ -108,6 +108,17 @@ export function createHtmlForCart(cartList: any) {
 
     removeFlowerBtn.innerHTML = "-";
     addFlowerBtn.innerHTML = "+";
+
+    addFlowerBtn.addEventListener("click", () =>{
+    totalPrice += cartList[i].price;
+    flowerPrice.innerHTML = cartList[i].price + totalPrice + " kr";  
+    })
+
+    removeFlowerBtn.addEventListener("click", () => {
+      totalPrice -= cartList[i].price;
+      flowerPrice.innerHTML = cartList[i].price + totalPrice + " kr"; 
+
+    })
 
     flowerImg.src = cartList[i].img;
     flowerTitle.innerHTML = cartList[i].title;

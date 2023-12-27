@@ -1,5 +1,6 @@
 import "./../scss/style.scss";
 import {
+  createHtmlForCart,
   createHtmlForFlowers,
   createHtmlForFlowers2,
   toggleHamburger,
@@ -23,3 +24,15 @@ export const cartList: any = [];
 
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
+
+
+
+createHtmlForCart(cartList);
+
+export const cartbtn = document.getElementById ("cartbtn");
+export const cartContainer = document.getElementById ("cart-container") as HTMLDivElement;
+
+cartbtn?.addEventListener ("click", () => {
+  
+  cartContainer.style.display = "block";
+})

@@ -91,3 +91,35 @@ export function createHtmlForFlowers2(flowerList2: any) {
     flowerBtnContainer2.appendChild(flowerBuyBtn);
   }
 }
+
+export function createHtmlForCart(cartList: any) {
+  const cartContainer = document.getElementById("cart-container");
+
+  for (let i = 0; i < cartList.length; i++) {
+/*     const flowerBtnContainer2 = document.createElement("div");
+ */
+    const flowerDiv = document.createElement("div");
+    const flowerImg = document.createElement("img");
+    const flowerTitle = document.createElement("h2");
+    const flowerPrice = document.createElement("p");
+
+    flowerImg.src = cartList[i].img;
+    flowerTitle.innerHTML = cartList[i].title;
+    flowerPrice.innerHTML = cartList[i].price + " kr";
+
+    flowerDiv.className = "flowerDiv";
+    flowerImg.className = "flowerImg";
+    flowerTitle.className = "flowerTitle";
+    flowerPrice.className = "flowerPrice";
+
+/*     flowerContainer2?.appendChild(flowerBtnContainer2);
+ */ cartContainer?.appendChild(flowerDiv);
+    flowerDiv.appendChild(flowerImg);
+    flowerDiv.appendChild(flowerTitle);
+    flowerDiv.appendChild(flowerPrice);
+  }
+}
+
+
+
+

@@ -148,9 +148,16 @@ body {
   border: 2px solid black;
 }
 
-#cart {
-  height: 100vh;
-  border: 2px solid black;
+#cart-container {
+display: none;
+position: fixed;
+z-index: 250;
+top: 10%;
+left: 20%;
+min-width: 60%;
+min-height: 50%;
+background-color: beige;
+
 }
 
 #payment {

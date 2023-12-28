@@ -13,14 +13,18 @@ import {
   flower5,
   flower6,
 } from "./modules/flowerObjects";
-
+import { Flowers } from "./modules/flowersClass";
 const hamburgerbtn = document.getElementById("hamburger-btn");
 
 hamburgerbtn?.addEventListener("click", toggleHamburger);
 
-export const flowerList = [flower1, flower2, flower3];
-export const flowerList2 = [flower4, flower5, flower6];
-export let cartList:any = [];
+export const flowerList: Flowers[] = [flower1, flower2, flower3];
+export const flowerList2: Flowers[] = [flower4, flower5, flower6];
+export let cartList: Flowers[] = [];
+
+/* if (localStorage.getItem("product")) {
+  cartList = JSON.parse(localStorage.getItem("product") || "");
+} */
 
 
 createHtmlForFlowers(flowerList);

@@ -1,4 +1,5 @@
 import { cartList } from "./main";
+import { Flowers } from "./modules/flowersClass";
 
 export function toggleHamburger() {
   const navbar = document.getElementById("navbar");
@@ -8,7 +9,7 @@ export function toggleHamburger() {
   toggleTest();
 }
 
-export function createHtmlForFlowers(flowerList: any) {
+export function createHtmlForFlowers(flowerList: Flowers[]) {
   const flowerContainer = document.getElementById("flower-container");
 
   for (let i = 0; i < flowerList.length; i++) {
@@ -37,6 +38,9 @@ export function createHtmlForFlowers(flowerList: any) {
     flowerBuyBtn.addEventListener("click", addToCart);
     function addToCart() {
       cartList.push(flowerList[i]);
+/*       localStorage.setItem("product", JSON.stringify(flowerList[i]));
+ */      countTotalPrice()
+
     }
 
     flowerContainer?.appendChild(flowerBtnContainer);
@@ -49,7 +53,7 @@ export function createHtmlForFlowers(flowerList: any) {
   }
 }
 
-export function createHtmlForFlowers2(flowerList2: any) {
+export function createHtmlForFlowers2(flowerList2: Flowers[]) {
   const flowerContainer2 = document.getElementById("flower-container2");
 
   for (let i = 0; i < flowerList2.length; i++) {
@@ -78,7 +82,8 @@ export function createHtmlForFlowers2(flowerList2: any) {
     flowerBuyBtn.addEventListener("click", addToCart);
     function addToCart() {
       cartList.push(flowerList2[i]);
-      console.log(cartList);
+/*       localStorage.setItem("product", JSON.stringify(flowerList2[i]));
+ */   
     }
 
     flowerContainer2?.appendChild(flowerBtnContainer2);
@@ -91,14 +96,14 @@ export function createHtmlForFlowers2(flowerList2: any) {
   }
 }
 
-export function createHtmlForCart(cartList: any) {
+export function createHtmlForCart(cartList: Flowers[]) {
   const cartContent = document.getElementById(
     "cart-Content"
   ) as HTMLDivElement;
 
   cartContent.innerHTML = "";
 
-
+  
   for (let i = 0; i < cartList.length; i++) {
     const flowerDiv = document.createElement("div");
     const flowerImg = document.createElement("img");
@@ -106,20 +111,29 @@ export function createHtmlForCart(cartList: any) {
     const flowerPrice = document.createElement("p");
     const removeFlowerBtn = document.createElement("button");
     const addFlowerBtn = document.createElement("button");
-
+    
     removeFlowerBtn.innerHTML = "-";
     addFlowerBtn.innerHTML = "+";
-
+    
     addFlowerBtn.addEventListener("click", () => {
       cartList.push(cartList[i]);
-      createHtmlForCart(cartList);
+/*       localStorage.setItem("product", JSON.stringify(cartList));
+ */      createHtmlForCart(cartList);
       countTotalPrice();
     });
 
     removeFlowerBtn.addEventListener("click", () => {
       cartList.splice(i, 1);
-      createHtmlForCart(cartList);
+/*       localStorage.setItem("product", JSON.stringify(cartList));
+ */   createHtmlForCart(cartList);
       countTotalPrice();
+      if (cartList.length === 0) {
+        const emptyContainr = document.createElement("p");
+        const checkoutContainer = document.getElementById ("checkout-Container") as HTMLDivElement;
+           emptyContainr.innerHTML = "Cart is empty";
+           cartContent.appendChild(emptyContainr);
+           checkoutContainer.style.display = "none";
+         }
     });
 
     flowerImg.src = cartList[i].img;
@@ -139,32 +153,17 @@ export function createHtmlForCart(cartList: any) {
     flowerDiv.appendChild(addFlowerBtn);
   }
 
-  if (cartList.length === 0) {
-    const checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
-    const cartContainer = document.getElementById("cart-container") as HTMLDivElement;
-    const emptyContainr = document.createElement("p");
-    emptyContainr.innerHTML = "Cart is empty";
-    cartContent.appendChild(emptyContainr);
-    checkoutBtn.style.display = "none";
-    cartContainer.innerHTML ="";
-  }
 }
 
 
 export const countTotalPrice = () => {
-  const pTag = document.createElement("p");
-  const cartContent = document.getElementById(
-    "cart-Content"
-  ) as HTMLDivElement;
-
+  const totalAmount = document.getElementById ("totalAmount-text") as HTMLHeadingElement;
   let tPrice = 0;
   for (let i = 0; i < cartList.length; i++) {
     tPrice += cartList[i].price;
-    pTag.innerHTML = tPrice + "kr";
+    totalAmount.innerHTML = "Total Amount:" + tPrice + "kr";
   }
 
-  cartContent.appendChild(pTag);
-  console.log(tPrice);
 };
 
 

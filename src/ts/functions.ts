@@ -1,4 +1,4 @@
-import { cartList } from "./main";
+import { cartContainer, cartList } from "./main";
 import { Flowers } from "./modules/flowersClass";
 
 export function toggleHamburger() {
@@ -84,6 +84,8 @@ export function createHtmlForFlowers2(flowerList2: Flowers[]) {
       cartList.push(flowerList2[i]);
 /*       localStorage.setItem("product", JSON.stringify(flowerList2[i]));
  */   
+     countTotalPrice()
+
     }
 
     flowerContainer2?.appendChild(flowerBtnContainer2);
@@ -131,7 +133,7 @@ export function createHtmlForCart(cartList: Flowers[]) {
         const emptyContainr = document.createElement("p");
         const checkoutContainer = document.getElementById ("checkout-Container") as HTMLDivElement;
            emptyContainr.innerHTML = "Cart is empty";
-           cartContent.appendChild(emptyContainr);
+           cartContainer.appendChild(emptyContainr);
            checkoutContainer.style.display = "none";
          }
     });

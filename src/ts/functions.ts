@@ -37,7 +37,6 @@ export function createHtmlForFlowers(flowerList: any) {
     flowerBuyBtn.addEventListener("click", addToCart);
     function addToCart() {
       cartList.push(flowerList[i]);
-      console.log(cartList);
     }
 
     flowerContainer?.appendChild(flowerBtnContainer);
@@ -80,7 +79,6 @@ export function createHtmlForFlowers2(flowerList2: any) {
     function addToCart() {
       cartList.push(flowerList2[i]);
       console.log(cartList);
-      
     }
 
     flowerContainer2?.appendChild(flowerBtnContainer2);
@@ -94,11 +92,13 @@ export function createHtmlForFlowers2(flowerList2: any) {
 }
 
 export function createHtmlForCart(cartList: any) {
-  const cartContainer = document.getElementById("cart-container");
+  const cartContainer = document.getElementById(
+    "cart-Content"
+  ) as HTMLDivElement;
   let totalPrice = 0;
+  cartContainer.innerHTML = "";
+
   for (let i = 0; i < cartList.length; i++) {
-    /*     const flowerBtnContainer2 = document.createElement("div");
-     */
     const flowerDiv = document.createElement("div");
     const flowerImg = document.createElement("img");
     const flowerTitle = document.createElement("h2");
@@ -109,16 +109,24 @@ export function createHtmlForCart(cartList: any) {
     removeFlowerBtn.innerHTML = "-";
     addFlowerBtn.innerHTML = "+";
 
-    addFlowerBtn.addEventListener("click", () =>{
-    totalPrice += cartList[i].price;
-    flowerPrice.innerHTML = cartList[i].price + totalPrice + " kr";  
-    })
+    addFlowerBtn.addEventListener("click", () => {
+      totalPrice += cartList[i].price;
+      //flowerPrice.innerHTML = cartList[i].price + totalPrice + " kr";
+      cartList.push(cartList[i]);
+      createHtmlForCart(cartList);
+      console.log("T" + totalPrice);
+      countTotalPrice();
+    });
 
     removeFlowerBtn.addEventListener("click", () => {
       totalPrice -= cartList[i].price;
-      flowerPrice.innerHTML = cartList[i].price + totalPrice + " kr"; 
+      //flowerPrice.innerHTML = cartList[i].price + totalPrice + " kr";
 
-    })
+      cartList.splice(i, 1);
+      createHtmlForCart(cartList);
+      console.log("T" + totalPrice);
+      countTotalPrice();
+    });
 
     flowerImg.src = cartList[i].img;
     flowerTitle.innerHTML = cartList[i].title;
@@ -129,12 +137,33 @@ export function createHtmlForCart(cartList: any) {
     flowerTitle.className = "flowerTitle";
     flowerPrice.className = "flowerPrice";
 
-    /*     flowerContainer2?.appendChild(flowerBtnContainer2);
-     */ cartContainer?.appendChild(flowerDiv);
+    cartContainer?.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);
     flowerDiv.appendChild(flowerTitle);
     flowerDiv.appendChild(flowerPrice);
     flowerDiv.appendChild(removeFlowerBtn);
     flowerDiv.appendChild(addFlowerBtn);
+    console.log("T" + totalPrice);
+  }
+  if (cartList.length === 0) {
+    const emptyContainr = document.createElement("p");
+    emptyContainr.innerHTML = "Cart is empty";
+    cartContainer.appendChild(emptyContainr);
   }
 }
+
+export const countTotalPrice = () => {
+  const pTag = document.createElement("p");
+  const cartContainer = document.getElementById(
+    "cart-Content"
+  ) as HTMLDivElement;
+
+  let tPrice = 0;
+  for (let i = 0; i < cartList.length; i++) {
+    tPrice += cartList[i].price;
+    pTag.innerHTML = tPrice + "kr";
+  }
+
+  cartContainer.appendChild(pTag);
+  console.log(tPrice);
+};

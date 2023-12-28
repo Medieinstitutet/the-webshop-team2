@@ -1,5 +1,6 @@
 import "./../scss/style.scss";
 import {
+  countTotalPrice,
   createHtmlForCart,
   createHtmlForFlowers,
   createHtmlForFlowers2,
@@ -33,13 +34,15 @@ export const cartContainer = document.getElementById(
 cartbtn?.addEventListener("click", () => {
   cartContainer.style.display = "block";
   createHtmlForCart(cartList);
-/*   if (e.target == cartContainer){
+  /*   if (e.target == cartContainer){
     cartContainer.style.display ="none";
   } */
 });
 
-const closeCartContainer = document.getElementById("close-cart-container") as HTMLButtonElement;
+const closeCartContainer = document.getElementById(
+  "close-cart-container"
+) as HTMLButtonElement;
 
-closeCartContainer.addEventListener("click", () =>{
-  cartContainer.style.display ="none";
-})
+closeCartContainer.addEventListener("click", () => {
+  cartContainer.style.display = "none";
+});

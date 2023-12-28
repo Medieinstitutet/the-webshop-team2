@@ -38,9 +38,8 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerBuyBtn.addEventListener("click", addToCart);
     function addToCart() {
       cartList.push(flowerList[i]);
-/*       localStorage.setItem("product", JSON.stringify(flowerList[i]));
- */      countTotalPrice()
-
+      /*       localStorage.setItem("product", JSON.stringify(flowerList[i]));
+       */ countTotalPrice();
     }
 
     flowerContainer?.appendChild(flowerBtnContainer);
@@ -82,10 +81,10 @@ export function createHtmlForFlowers2(flowerList2: Flowers[]) {
     flowerBuyBtn.addEventListener("click", addToCart);
     function addToCart() {
       cartList.push(flowerList2[i]);
-/*       localStorage.setItem("product", JSON.stringify(flowerList2[i]));
- */   
-     countTotalPrice()
-
+      /*       localStorage.setItem("product", JSON.stringify(flowerList2[i]));
+       */
+      //checkoutContainer1();
+      countTotalPrice();
     }
 
     flowerContainer2?.appendChild(flowerBtnContainer2);
@@ -98,14 +97,31 @@ export function createHtmlForFlowers2(flowerList2: Flowers[]) {
   }
 }
 
-export function createHtmlForCart(cartList: Flowers[]) {
-  const cartContent = document.getElementById(
-    "cart-Content"
+export const checkoutContainer1 = () => {
+  const totalCartContainer = document.getElementById(
+    "totalCart-container"
   ) as HTMLDivElement;
+  const checkoutContainer = document.createElement("div");
+  const totalAmountText = document.createElement("h3");
 
+  checkoutContainer.id = "checkout-Container";
+  totalAmountText.id = "totalAmount-text";
+
+  totalCartContainer.appendChild(checkoutContainer);
+  checkoutContainer.appendChild(totalAmountText);
+
+  const checkoutBtn = document.createElement("button");
+  checkoutBtn.innerHTML = "Checkout";
+  checkoutBtn.className = "checkoutBtn";
+  checkoutContainer.appendChild(checkoutBtn);
+
+  countTotalPrice();
+};
+
+export function createHtmlForCart(cartList: Flowers[]) {
+  const cartContent = document.getElementById("cart-Content") as HTMLDivElement;
   cartContent.innerHTML = "";
 
-  
   for (let i = 0; i < cartList.length; i++) {
     const flowerDiv = document.createElement("div");
     const flowerImg = document.createElement("img");
@@ -113,29 +129,37 @@ export function createHtmlForCart(cartList: Flowers[]) {
     const flowerPrice = document.createElement("p");
     const removeFlowerBtn = document.createElement("button");
     const addFlowerBtn = document.createElement("button");
-    
+
     removeFlowerBtn.innerHTML = "-";
     addFlowerBtn.innerHTML = "+";
-    
+
     addFlowerBtn.addEventListener("click", () => {
       cartList.push(cartList[i]);
-/*       localStorage.setItem("product", JSON.stringify(cartList));
- */      createHtmlForCart(cartList);
+      /*       localStorage.setItem("product", JSON.stringify(cartList));*/
+
+      createHtmlForCart(cartList);
       countTotalPrice();
     });
 
     removeFlowerBtn.addEventListener("click", () => {
       cartList.splice(i, 1);
-/*       localStorage.setItem("product", JSON.stringify(cartList));
- */   createHtmlForCart(cartList);
+      /*       localStorage.setItem("product", JSON.stringify(cartList)); */
+      createHtmlForCart(cartList);
       countTotalPrice();
       if (cartList.length === 0) {
         const emptyContainr = document.createElement("p");
-        const checkoutContainer = document.getElementById ("checkout-Container") as HTMLDivElement;
-           emptyContainr.innerHTML = "Cart is empty";
-           cartContainer.appendChild(emptyContainr);
-           checkoutContainer.style.display = "none";
-         }
+        const checkoutContainer = document.getElementById(
+          "checkout-Container"
+        ) as HTMLDivElement;
+        emptyContainr.innerHTML = "Cart is empty";
+        cartContainer?.appendChild(emptyContainr);
+        checkoutContainer.style.display = "none";
+      } else {
+        const checkoutContainer = document.getElementById(
+          "checkout-Container"
+        ) as HTMLDivElement;
+        checkoutContainer.style.display = "flex";
+      }
     });
 
     flowerImg.src = cartList[i].img;
@@ -154,18 +178,15 @@ export function createHtmlForCart(cartList: Flowers[]) {
     flowerDiv.appendChild(removeFlowerBtn);
     flowerDiv.appendChild(addFlowerBtn);
   }
-
 }
 
-
 export const countTotalPrice = () => {
-  const totalAmount = document.getElementById ("totalAmount-text") as HTMLHeadingElement;
+  const totalAmount = document.getElementById(
+    "totalAmount-text"
+  ) as HTMLHeadingElement;
   let tPrice = 0;
   for (let i = 0; i < cartList.length; i++) {
     tPrice += cartList[i].price;
     totalAmount.innerHTML = "Total Amount:" + tPrice + "kr";
   }
-
 };
-
-

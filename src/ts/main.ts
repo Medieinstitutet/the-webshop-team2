@@ -1,5 +1,6 @@
 import "./../scss/style.scss";
 import {
+  checkoutContainer1,
   createHtmlForCart,
   createHtmlForFlowers,
   createHtmlForFlowers2,
@@ -26,7 +27,6 @@ export let cartList: Flowers[] = [];
   cartList = JSON.parse(localStorage.getItem("product") || "");
 } */
 
-
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
 
@@ -38,6 +38,7 @@ export const cartContainer = document.getElementById(
 cartbtn?.addEventListener("click", () => {
   cartContainer.style.display = "block";
   createHtmlForCart(cartList);
+  checkoutContainer1();
 });
 
 const closeCartContainer = document.getElementById(
@@ -48,12 +49,12 @@ closeCartContainer.addEventListener("click", () => {
   cartContainer.style.display = "none";
 });
 
+/* const checkoutContainer = document.getElementById(
+  "checkout-Container"
+) as HTMLDivElement;
 
-const checkoutContainer = document.getElementById("checkout-Container") as HTMLDivElement;
-
-
-  const checkoutBtn = document.createElement("button");
-  checkoutBtn.innerHTML = "Checkout";
-  checkoutBtn.className = "checkoutBtn";
-  checkoutContainer.appendChild(checkoutBtn);
-
+const checkoutBtn = document.createElement("button");
+checkoutBtn.innerHTML = "Checkout";
+checkoutBtn.className = "checkoutBtn";
+checkoutContainer.appendChild(checkoutBtn);
+ */

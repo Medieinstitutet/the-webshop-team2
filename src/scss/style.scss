@@ -170,12 +170,28 @@ height: 100px;
   position: fixed;
 }
 
+#totalCart-container{
+  display: flex;
+  flex-direction: row;
+}
+
 .cartDiv{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin-top: 1rem;
+}
+
+#cart-Content{
   width: 60%;
+  background-color: cadetblue;
+}
+
+#checkout-Container{
+  width: 40%;
+  left:60%;
+  background-color: coral;
+
 }
 
 #payment {

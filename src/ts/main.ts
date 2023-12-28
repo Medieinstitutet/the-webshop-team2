@@ -1,6 +1,5 @@
 import "./../scss/style.scss";
 import {
-  countTotalPrice,
   createHtmlForCart,
   createHtmlForFlowers,
   createHtmlForFlowers2,
@@ -21,7 +20,8 @@ hamburgerbtn?.addEventListener("click", toggleHamburger);
 
 export const flowerList = [flower1, flower2, flower3];
 export const flowerList2 = [flower4, flower5, flower6];
-export const cartList: any = [];
+export let cartList:any = [];
+
 
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
@@ -34,9 +34,6 @@ export const cartContainer = document.getElementById(
 cartbtn?.addEventListener("click", () => {
   cartContainer.style.display = "block";
   createHtmlForCart(cartList);
-  /*   if (e.target == cartContainer){
-    cartContainer.style.display ="none";
-  } */
 });
 
 const closeCartContainer = document.getElementById(
@@ -46,3 +43,13 @@ const closeCartContainer = document.getElementById(
 closeCartContainer.addEventListener("click", () => {
   cartContainer.style.display = "none";
 });
+
+
+const checkoutContainer = document.getElementById("checkout-Container") as HTMLDivElement;
+
+
+  const checkoutBtn = document.createElement("button");
+  checkoutBtn.innerHTML = "Checkout";
+  checkoutBtn.className = "checkoutBtn";
+  checkoutContainer.appendChild(checkoutBtn);
+

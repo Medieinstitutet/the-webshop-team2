@@ -92,11 +92,12 @@ export function createHtmlForFlowers2(flowerList2: any) {
 }
 
 export function createHtmlForCart(cartList: any) {
-  const cartContainer = document.getElementById(
+  const cartContent = document.getElementById(
     "cart-Content"
   ) as HTMLDivElement;
-  let totalPrice = 0;
-  cartContainer.innerHTML = "";
+
+  cartContent.innerHTML = "";
+
 
   for (let i = 0; i < cartList.length; i++) {
     const flowerDiv = document.createElement("div");
@@ -110,21 +111,14 @@ export function createHtmlForCart(cartList: any) {
     addFlowerBtn.innerHTML = "+";
 
     addFlowerBtn.addEventListener("click", () => {
-      totalPrice += cartList[i].price;
-      //flowerPrice.innerHTML = cartList[i].price + totalPrice + " kr";
       cartList.push(cartList[i]);
       createHtmlForCart(cartList);
-      console.log("T" + totalPrice);
       countTotalPrice();
     });
 
     removeFlowerBtn.addEventListener("click", () => {
-      totalPrice -= cartList[i].price;
-      //flowerPrice.innerHTML = cartList[i].price + totalPrice + " kr";
-
       cartList.splice(i, 1);
       createHtmlForCart(cartList);
-      console.log("T" + totalPrice);
       countTotalPrice();
     });
 
@@ -137,24 +131,29 @@ export function createHtmlForCart(cartList: any) {
     flowerTitle.className = "flowerTitle";
     flowerPrice.className = "flowerPrice";
 
-    cartContainer?.appendChild(flowerDiv);
+    cartContent?.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);
     flowerDiv.appendChild(flowerTitle);
     flowerDiv.appendChild(flowerPrice);
     flowerDiv.appendChild(removeFlowerBtn);
     flowerDiv.appendChild(addFlowerBtn);
-    console.log("T" + totalPrice);
   }
+
   if (cartList.length === 0) {
+    const checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
+    const cartContainer = document.getElementById("cart-container") as HTMLDivElement;
     const emptyContainr = document.createElement("p");
     emptyContainr.innerHTML = "Cart is empty";
-    cartContainer.appendChild(emptyContainr);
+    cartContent.appendChild(emptyContainr);
+    checkoutBtn.style.display = "none";
+    cartContainer.innerHTML ="";
   }
 }
 
+
 export const countTotalPrice = () => {
   const pTag = document.createElement("p");
-  const cartContainer = document.getElementById(
+  const cartContent = document.getElementById(
     "cart-Content"
   ) as HTMLDivElement;
 
@@ -164,6 +163,8 @@ export const countTotalPrice = () => {
     pTag.innerHTML = tPrice + "kr";
   }
 
-  cartContainer.appendChild(pTag);
+  cartContent.appendChild(pTag);
   console.log(tPrice);
 };
+
+

@@ -3,6 +3,8 @@ import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
 
 export function createHtmlForCart(cartList: Flowers[]) {
+  //document.body.style.backdropFilter = "blur(3px)";
+  //document.body.className = "filter";
   const cartContent = document.getElementById("cart-Content") as HTMLDivElement;
   cartContent.innerHTML = "";
 

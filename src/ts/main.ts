@@ -4,7 +4,6 @@ import { checkoutContainer1 } from "./functions/checkoutContainer1";
 import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
 import { createHtmlForFlowers2 } from "./functions/createHtmlForFlowers2";
-import { createPaymentContainer } from "./functions/createPaymentContainer";
 import {
   flower1,
   flower2,
@@ -52,7 +51,6 @@ export const paymentContainer = document.getElementById(
 
 paymentbtn?.addEventListener("click", () => {
   paymentContainer.style.display = "block";
-  /*  createPaymentContainer(); */
 });
 
 export const closePaymentContainer = document.getElementById(
@@ -61,6 +59,7 @@ export const closePaymentContainer = document.getElementById(
 
 closePaymentContainer.addEventListener("click", () => {
   paymentContainer.style.display = "none";
+  document.body.style.overflow = "visible";
 });
 
 export const checkoutBtn = document.getElementById(

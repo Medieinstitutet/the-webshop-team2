@@ -253,11 +253,13 @@ body {
     font-size: 3rem;
     margin: 0;
   }
+  &__content {
+    width: 60%;
+    background-color: pink;
+    height: 70%;
+  }
 }
 
-.flowerDiv1{
-  background-color: pink;
-  width: 50%;
+.filter {
+  filter: blur(100px);
 }
-
-

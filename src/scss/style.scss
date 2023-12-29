@@ -147,8 +147,8 @@ body {
   flex-direction: column;
   border: 2px solid black;
 }
-
-#cart-container {
+/* -----------------cart css */
+.cartContainer {
   display: none;
   position: fixed;
   z-index: 250;
@@ -159,6 +159,31 @@ body {
   max-height: 50%;
   background-color: beige;
   overflow: scroll;
+  overflow-x: hidden;
+  &__close {
+    position: relative;
+    left: 90%;
+    top: 90%;
+    font-size: 3rem;
+    margin: 0;
+  }
+}
+.nice {
+  background-color: red;
+}
+
+.emptyContainr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40vh;
+}
+
+.emptyContainrText,
+.emptyContainrIcon {
+  position: absolute;
+  font-size: 3rem;
 }
 
 .cartImg {
@@ -166,11 +191,16 @@ body {
   height: 100px;
 }
 
-#close-cart-container {
-  position: fixed;
+/* .closeCartContainer {
+  position: relative;
+  left: 90%;
+  top: 90%;
+  font-size: 3rem;
+  margin: 0;
 }
-
+ */
 #totalCart-container {
+  position: relative;
   display: flex;
   flex-direction: row;
 }
@@ -197,15 +227,17 @@ body {
   flex-direction: column;
 }
 
-#payment {
-  height: 100vh;
-  border: 2px solid black;
-}
-
 .cartIcon {
   margin-left: 30rem;
 }
 
 .addNone {
   display: none;
+}
+
+/* ---------------------- */
+
+#payment {
+  height: 100vh;
+  border: 2px solid black;
 }

@@ -1,4 +1,5 @@
-import { cartContainer, cartList } from "./main";
+/* import { checkIfCartIsEmpty } from "./funktions/checkIfCartIsEmpty";
+import { cartList } from "./main";
 import { Flowers } from "./modules/flowersClass";
 
 export function toggleHamburger() {
@@ -8,8 +9,8 @@ export function toggleHamburger() {
   };
   toggleTest();
 }
-
-export function createHtmlForFlowers(flowerList: Flowers[]) {
+ */
+/* export function createHtmlForFlowers(flowerList: Flowers[]) {
   const flowerContainer = document.getElementById("flower-container");
 
   for (let i = 0; i < flowerList.length; i++) {
@@ -35,12 +36,10 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerPrice.className = "flowerPrice";
     flowerBuyBtn.className = "flowerBuyBtn";
 
-    flowerBuyBtn.addEventListener("click", addToCart);
-    function addToCart() {
+    flowerBuyBtn.addEventListener("click", () => {
       cartList.push(flowerList[i]);
-      /*       localStorage.setItem("product", JSON.stringify(flowerList[i]));
-       */ countTotalPrice();
-    }
+      countTotalPrice();
+    });
 
     flowerContainer?.appendChild(flowerBtnContainer);
     flowerBtnContainer.appendChild(flowerDiv);
@@ -50,9 +49,9 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerDiv.appendChild(flowerPrice);
     flowerBtnContainer?.appendChild(flowerBuyBtn);
   }
-}
+} */
 
-export function createHtmlForFlowers2(flowerList2: Flowers[]) {
+/* export function createHtmlForFlowers2(flowerList2: Flowers[]) {
   const flowerContainer2 = document.getElementById("flower-container2");
 
   for (let i = 0; i < flowerList2.length; i++) {
@@ -81,9 +80,6 @@ export function createHtmlForFlowers2(flowerList2: Flowers[]) {
     flowerBuyBtn.addEventListener("click", addToCart);
     function addToCart() {
       cartList.push(flowerList2[i]);
-      /*       localStorage.setItem("product", JSON.stringify(flowerList2[i]));
-       */
-      //checkoutContainer1();
       countTotalPrice();
     }
 
@@ -95,29 +91,30 @@ export function createHtmlForFlowers2(flowerList2: Flowers[]) {
     flowerDiv.appendChild(flowerPrice);
     flowerBtnContainer2.appendChild(flowerBuyBtn);
   }
-}
+} */
 
-export const checkoutContainer1 = () => {
+/* export const checkoutContainer1 = () => {
   const totalCartContainer = document.getElementById(
     "totalCart-container"
   ) as HTMLDivElement;
-  const checkoutContainer = document.createElement("div");
-  const totalAmountText = document.createElement("h3");
+  if (!document.getElementById("checkout-Container")) {
+    const checkoutContainer = document.createElement("div");
+    const totalAmountText = document.createElement("h3");
 
-  checkoutContainer.id = "checkout-Container";
-  totalAmountText.id = "totalAmount-text";
+    checkoutContainer.id = "checkout-Container";
+    totalAmountText.id = "totalAmount-text";
 
-  totalCartContainer.appendChild(checkoutContainer);
-  checkoutContainer.appendChild(totalAmountText);
+    totalCartContainer.appendChild(checkoutContainer);
+    checkoutContainer.appendChild(totalAmountText);
 
-  const checkoutBtn = document.createElement("button");
-  checkoutBtn.innerHTML = "Checkout";
-  checkoutBtn.className = "checkoutBtn";
-  checkoutContainer.appendChild(checkoutBtn);
-
-  countTotalPrice();
-};
-
+    const checkoutBtn = document.createElement("button");
+    checkoutBtn.innerHTML = "Checkout";
+    checkoutBtn.className = "checkoutBtn";
+    checkoutContainer.appendChild(checkoutBtn);
+    countTotalPrice();
+  }
+}; */
+/* 
 export function createHtmlForCart(cartList: Flowers[]) {
   const cartContent = document.getElementById("cart-Content") as HTMLDivElement;
   cartContent.innerHTML = "";
@@ -135,31 +132,17 @@ export function createHtmlForCart(cartList: Flowers[]) {
 
     addFlowerBtn.addEventListener("click", () => {
       cartList.push(cartList[i]);
-      /*       localStorage.setItem("product", JSON.stringify(cartList));*/
-
+      console.log(cartList[i]);
       createHtmlForCart(cartList);
       countTotalPrice();
+      checkIfCartIsEmpty();
     });
 
     removeFlowerBtn.addEventListener("click", () => {
       cartList.splice(i, 1);
-      /*       localStorage.setItem("product", JSON.stringify(cartList)); */
       createHtmlForCart(cartList);
       countTotalPrice();
-      if (cartList.length === 0) {
-        const emptyContainr = document.createElement("p");
-        const checkoutContainer = document.getElementById(
-          "checkout-Container"
-        ) as HTMLDivElement;
-        emptyContainr.innerHTML = "Cart is empty";
-        cartContainer?.appendChild(emptyContainr);
-        checkoutContainer.style.display = "none";
-      } else {
-        const checkoutContainer = document.getElementById(
-          "checkout-Container"
-        ) as HTMLDivElement;
-        checkoutContainer.style.display = "flex";
-      }
+      checkIfCartIsEmpty();
     });
 
     flowerImg.src = cartList[i].img;
@@ -178,15 +161,48 @@ export function createHtmlForCart(cartList: Flowers[]) {
     flowerDiv.appendChild(removeFlowerBtn);
     flowerDiv.appendChild(addFlowerBtn);
   }
-}
+} */
 
-export const countTotalPrice = () => {
+/* export const countTotalPrice = () => {
   const totalAmount = document.getElementById(
     "totalAmount-text"
   ) as HTMLHeadingElement;
-  let tPrice = 0;
-  for (let i = 0; i < cartList.length; i++) {
-    tPrice += cartList[i].price;
-    totalAmount.innerHTML = "Total Amount:" + tPrice + "kr";
+  if (totalAmount) {
+    let totalPrice = 0;
+    for (let i = 0; i < cartList.length; i++) {
+      totalPrice += cartList[i].price;
+      totalAmount.innerHTML = "Total Amount:" + totalPrice + "kr";
+    }
+  }
+}; */
+
+/* export const checkIfCartIsEmpty = () => {
+  const checkoutContainer = document.getElementById("checkout-Container");
+  const emptyContainr = document.getElementById("emptyContainr");
+  if (cartList.length === 0 && !emptyContainr) {
+    const emptyContainr = document.createElement("p");
+    emptyContainr.innerHTML = "Cart is empty";
+    emptyContainr.className = "emptyContainr";
+    emptyContainr.id = "emptyContainr";
+    cartContainer?.appendChild(emptyContainr);
+  }
+  if (cartList.length > 0 && emptyContainr) {
+    emptyContainr.remove();
+    cartContainer?.classList.remove("nice");
+  }
+  if (cartList.length === 0) {
+    checkoutContainer?.remove();
+    cartContainer?.classList.add("nice");
   }
 };
+ */
+
+/* 
+vad har jag gjort:
+  skapat en annan function med tusen if satser
+  skapat en annan map som heter functions och flyttat en funcktion dit
+  lägt till en class till cart-container för att id gjorde att när man skriv en ny class så det fungerade inte
+  markerade var en section börjar och var slutar med kommentTag
+  skriv css 
+  namn på varibler är inte bra
+*/

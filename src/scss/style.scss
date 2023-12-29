@@ -306,6 +306,11 @@ object-fit: contain;
   height: 200px;
 }
 
+#cartbtn, #paymentbtn {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 /* ---------animation----------- */
 .loader {
   width: 48px;

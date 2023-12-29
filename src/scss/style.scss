@@ -70,22 +70,28 @@ body {
   font-size: 50px;
 }
 
-/* #preview-title{
-  flex-direction: row;
+#preview-title{
+  margin-top: 3rem;
+  font-size: 1.5rem;
+}                               
+
+#preview-title-container{
+  display: flex;
   justify-content: center;
-}                                Asrinne testar här!*/ 
+
+}
 
 #preview-container {
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  margin-top: 2rem;
+  /* margin-top: 1rem; */
   @include m.for-size(tablet) {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     gap: 2rem;
-    margin-top: 2rem;
+    /* margin-top: 1rem; */
   }
 }
 

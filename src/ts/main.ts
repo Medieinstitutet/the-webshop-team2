@@ -1,6 +1,8 @@
 import "./../scss/style.scss";
 import { checkIfCartIsEmpty } from "./functions/checkIfCartIsEmpty";
-import { checkoutContainer1 } from "./functions/checkoutContainer1";
+import { checkoutContainerCart } from "./functions/checkoutContainerCart";
+import { finalContainerPayment } from "./functions/checkoutContainerPayment";
+//import { checkoutContainerPayment } from "./functions/checkoutContainerPayment";
 import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
 import { createHtmlForFlowers2 } from "./functions/createHtmlForFlowers2";
@@ -19,7 +21,7 @@ import { Flowers } from "./modules/flowersClass";
 export const flowerList: Flowers[] = [flower1, flower2, flower3];
 export const flowerList2: Flowers[] = [flower4, flower5, flower6];
 export let cartList: Flowers[] = [];
-export let paymentList: Flowers[] = [];
+//export let paymentList: Flowers[] = [];
 
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
@@ -32,7 +34,7 @@ export const cartContainer = document.getElementById(
 cartbtn?.addEventListener("click", () => {
   cartContainer.style.display = "block";
   createHtmlForCart(cartList);
-  checkoutContainer1();
+  checkoutContainerCart();
   checkIfCartIsEmpty();
 });
 
@@ -51,6 +53,7 @@ export const paymentContainer = document.getElementById(
 
 paymentbtn?.addEventListener("click", () => {
   paymentContainer.style.display = "block";
+  finalContainerPayment();
 });
 
 export const closePaymentContainer = document.getElementById(

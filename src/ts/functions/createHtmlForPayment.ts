@@ -1,16 +1,20 @@
-import { Flowers } from "../modules/flowersClass";
-import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
+import { cartList } from "../main";
 import { countTotalPrice } from "./countTotalPrice";
 
-export function createHtmlForCart(cartList: Flowers[]) {
-  const cartContent = document.getElementById("cart-Content") as HTMLDivElement;
-  cartContent.innerHTML = "";
+export function createHtmlForPayment() {
+  document.body.style.overflow = "hidden";
 
+  const paymentContent = document.getElementById(
+    "payment-Content"
+  ) as HTMLDivElement;
+  paymentContent.className = "paymentContainer__content";
+  paymentContent.innerHTML = "";
   for (let i = 0; i < cartList.length; i++) {
     const flowerDiv = document.createElement("div");
     const flowerImg = document.createElement("img");
     const flowerTitle = document.createElement("h2");
     const flowerPrice = document.createElement("p");
+
     const removeFlowerBtn = document.createElement("button");
     const addFlowerBtn = document.createElement("button");
 
@@ -20,16 +24,14 @@ export function createHtmlForCart(cartList: Flowers[]) {
     addFlowerBtn.addEventListener("click", () => {
       cartList.push(cartList[i]);
       console.log(cartList[i]);
-      createHtmlForCart(cartList);
+      createHtmlForPayment();
       countTotalPrice();
-      checkIfCartIsEmpty();
     });
 
     removeFlowerBtn.addEventListener("click", () => {
       cartList.splice(i, 1);
-      createHtmlForCart(cartList);
+      createHtmlForPayment();
       countTotalPrice();
-      checkIfCartIsEmpty();
     });
 
     flowerImg.src = cartList[i].img;
@@ -41,7 +43,7 @@ export function createHtmlForCart(cartList: Flowers[]) {
     flowerTitle.className = "flowerTitle";
     flowerPrice.className = "flowerPrice";
 
-    cartContent?.appendChild(flowerDiv);
+    paymentContent.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);
     flowerDiv.appendChild(flowerTitle);
     flowerDiv.appendChild(flowerPrice);

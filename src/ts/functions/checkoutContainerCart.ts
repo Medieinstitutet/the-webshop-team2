@@ -1,10 +1,9 @@
-import { cartList, paymentContainer, paymentList } from "../main";
-import { Flowers } from "../modules/flowersClass";
+import { paymentContainer } from "../main";
+import { finalContainerPayment } from "./checkoutContainerPayment";
 import { countTotalPrice } from "./countTotalPrice";
-import { createPaymentContainer } from "./createPaymentContainer";
-/* import { createHtmlForCart } from "./createHtmlForCart"; */
+import { createHtmlForPayment } from "./createHtmlForPayment";
 
-export const checkoutContainer1 = () => {
+export const checkoutContainerCart = () => {
   const totalCartContainer = document.getElementById(
     "totalCart-container"
   ) as HTMLDivElement;
@@ -25,14 +24,10 @@ export const checkoutContainer1 = () => {
     checkoutContainer.appendChild(checkoutBtn);
     countTotalPrice();
 
-  checkoutBtn.addEventListener ("click", () => {
-  paymentContainer.style.display = "block";
-  for (let i= 0; i < cartList.length; i++) {
-    paymentList.push(cartList[i]);
-    createPaymentContainer ()
+    checkoutBtn.addEventListener("click", () => {
+      paymentContainer.style.display = "block";
+      createHtmlForPayment();
+      finalContainerPayment();
+    });
   }
-  });
-
-}
-  }
-
+};

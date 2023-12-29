@@ -263,3 +263,16 @@ body {
 .filter {
   filter: blur(100px);
 }
+
+.finalPaymentContainer {
+  width: 40%;
+  left: 60%;
+  background-color: red;
+}
+
+#totalPayment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

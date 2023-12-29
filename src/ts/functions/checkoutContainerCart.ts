@@ -1,5 +1,4 @@
 import { paymentContainer } from "../main";
-import { finalContainerPayment } from "./checkoutContainerPayment";
 import { countTotalPrice } from "./countTotalPrice";
 import { createHtmlForPayment } from "./createHtmlForPayment";
 
@@ -27,7 +26,6 @@ export const checkoutContainerCart = () => {
     checkoutBtn.addEventListener("click", () => {
       paymentContainer.style.display = "block";
       createHtmlForPayment();
-      finalContainerPayment();
     });
   }
 };

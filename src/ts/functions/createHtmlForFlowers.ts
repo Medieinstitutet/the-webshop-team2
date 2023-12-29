@@ -1,4 +1,4 @@
-import { cartList } from "../main";
+import { cartList, countTotalAmount } from "../main";
 import { Flowers } from "../modules/flowersClass";
 import { countTotalPrice } from "./countTotalPrice";
 
@@ -31,6 +31,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerBuyBtn.addEventListener("click", () => {
       cartList.push(flowerList[i]);
       countTotalPrice();
+      countTotalAmount();
     });
 
     flowerContainer?.appendChild(flowerBtnContainer);

@@ -14,7 +14,10 @@
       <navbar id="navbar">
         <a href="#start" class="navbar__link">Start</a>
         <a href="#products" class="navbar__link">Products</a>
-        <a class="navbar__link bi bi-bag-heart cartIcon" id="cartbtn"></a>
+        <div>
+          <a class="navbar__link bi bi-bag-heart cartIcon" id="cartbtn"></a>
+          <p id="totalAmount">total:</p>
+        </div>
         <a class="navbar__link bi bi-cash-coin" id="paymentbtn"></a>
         <button id="hamburger-btn">Menu</button>
       </navbar>
@@ -51,7 +54,6 @@
         <div id="product-container">
           <div id="flower-container"></div>
         </div>
-
         <h3>Season bouquets</h3>
         <div id="product-container">
           <div id="flower-container2"></div>
@@ -70,6 +72,7 @@
       </div>
       <!----------------------------------payment------------------------------->
       <div id="payment-container" class="paymentContainer">
+        <div class="loader"></div>
         <div
           class="bi bi-x-lg paymentContainer__close"
           id="closePaymentContainer"

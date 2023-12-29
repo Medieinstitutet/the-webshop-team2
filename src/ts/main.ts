@@ -1,8 +1,6 @@
 import "./../scss/style.scss";
 import { checkIfCartIsEmpty } from "./functions/checkIfCartIsEmpty";
 import { checkoutContainerCart } from "./functions/checkoutContainerCart";
-import { finalContainerPayment } from "./functions/checkoutContainerPayment";
-//import { checkoutContainerPayment } from "./functions/checkoutContainerPayment";
 import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
 import { createHtmlForFlowers2 } from "./functions/createHtmlForFlowers2";
@@ -53,7 +51,6 @@ export const paymentContainer = document.getElementById(
 
 paymentbtn?.addEventListener("click", () => {
   paymentContainer.style.display = "block";
-  finalContainerPayment();
 });
 
 export const closePaymentContainer = document.getElementById(
@@ -74,3 +71,28 @@ if (checkoutBtn) {
     createHtmlForCart(cartList);
   });
 }
+
+/* import { countTotalPrice } from "./countTotalPrice";
+
+export const payContainerPayment = () => {
+  const totalCartContainer = document.getElementById(
+    "totalPayment-container"
+  ) as HTMLDivElement;
+  //if (!document.getElementById("checkout-Container")) {
+  const payContainer = document.createElement("div");
+  const totalAmount = document.createElement("h3");
+
+  totalAmount.id = "totalAmount-text";
+  totalAmount.innerHTML = "total";
+
+  payContainer.className = "payContainer";
+  totalCartContainer.appendChild(payContainer);
+  payContainer.appendChild(totalAmount);
+  countTotalPrice(); */
+
+export const countTotalAmount = () => {
+  const s = cartList.length;
+  console.log(s);
+};
+
+countTotalAmount();

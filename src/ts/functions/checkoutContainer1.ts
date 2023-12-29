@@ -1,4 +1,8 @@
+import { cartList, paymentContainer, paymentList } from "../main";
+import { Flowers } from "../modules/flowersClass";
 import { countTotalPrice } from "./countTotalPrice";
+import { createPaymentContainer } from "./createPaymentContainer";
+/* import { createHtmlForCart } from "./createHtmlForCart"; */
 
 export const checkoutContainer1 = () => {
   const totalCartContainer = document.getElementById(
@@ -20,5 +24,15 @@ export const checkoutContainer1 = () => {
     checkoutBtn.id = "checkoutBtn";
     checkoutContainer.appendChild(checkoutBtn);
     countTotalPrice();
+
+  checkoutBtn.addEventListener ("click", () => {
+  paymentContainer.style.display = "block";
+  for (let i= 0; i < cartList.length; i++) {
+    paymentList.push(cartList[i]);
+    createPaymentContainer ()
   }
-};
+  });
+
+}
+  }
+

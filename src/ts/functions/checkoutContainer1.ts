@@ -17,6 +17,7 @@ export const checkoutContainer1 = () => {
     const checkoutBtn = document.createElement("button");
     checkoutBtn.innerHTML = "Checkout";
     checkoutBtn.className = "checkoutBtn";
+    checkoutBtn.id = "checkoutBtn";
     checkoutContainer.appendChild(checkoutBtn);
     countTotalPrice();
   }

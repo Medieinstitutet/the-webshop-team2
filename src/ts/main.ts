@@ -42,3 +42,30 @@ const closeCartContainer = document.getElementById(
 closeCartContainer.addEventListener("click", () => {
   cartContainer.style.display = "none";
 });
+
+export const paymentbtn = document.getElementById("paymentbtn");
+export const paymentContainer = document.getElementById("payment-container") as HTMLDivElement;
+
+paymentbtn?.addEventListener ("click", () => {
+  paymentContainer.style.display = "block";
+  createHtmlForCart(cartList);
+
+});
+
+export const closePaymentContainer = document.getElementById ("closePaymentContainer") as HTMLButtonElement;
+
+closePaymentContainer.addEventListener("click", () => {
+  paymentContainer.style.display = "none";
+});
+
+export const checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
+if (checkoutBtn){
+  checkoutBtn.addEventListener ("click", () => {
+  paymentContainer.style.display = "block";
+  createHtmlForCart(cartList);
+
+
+  });
+
+}
+

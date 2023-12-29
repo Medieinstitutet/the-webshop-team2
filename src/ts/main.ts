@@ -4,6 +4,7 @@ import { checkoutContainer1 } from "./functions/checkoutContainer1";
 import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
 import { createHtmlForFlowers2 } from "./functions/createHtmlForFlowers2";
+import { createPaymentContainer } from "./functions/createPaymentContainer";
 import {
   flower1,
   flower2,
@@ -19,6 +20,7 @@ import { Flowers } from "./modules/flowersClass";
 export const flowerList: Flowers[] = [flower1, flower2, flower3];
 export const flowerList2: Flowers[] = [flower4, flower5, flower6];
 export let cartList: Flowers[] = [];
+export let paymentList: Flowers[] = [];
 
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
@@ -48,7 +50,7 @@ export const paymentContainer = document.getElementById("payment-container") as 
 
 paymentbtn?.addEventListener ("click", () => {
   paymentContainer.style.display = "block";
-  createHtmlForCart(cartList);
+ /*  createPaymentContainer(); */
 
 });
 
@@ -63,8 +65,6 @@ if (checkoutBtn){
   checkoutBtn.addEventListener ("click", () => {
   paymentContainer.style.display = "block";
   createHtmlForCart(cartList);
-
-
   });
 
 }

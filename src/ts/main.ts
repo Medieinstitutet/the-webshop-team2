@@ -1,9 +1,9 @@
 import "./../scss/style.scss";
-import { checkIfCartIsEmpty } from "./funktions/checkIfCartIsEmpty";
-import { checkoutContainer1 } from "./funktions/checkoutContainer1";
-import { createHtmlForCart } from "./funktions/createHtmlForCart";
-import { createHtmlForFlowers } from "./funktions/createHtmlForFlowers";
-import { createHtmlForFlowers2 } from "./funktions/createHtmlForFlowers2";
+import { checkIfCartIsEmpty } from "./functions/checkIfCartIsEmpty";
+import { checkoutContainer1 } from "./functions/checkoutContainer1";
+import { createHtmlForCart } from "./functions/createHtmlForCart";
+import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
+import { createHtmlForFlowers2 } from "./functions/createHtmlForFlowers2";
 import {
   flower1,
   flower2,

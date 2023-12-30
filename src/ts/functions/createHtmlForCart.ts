@@ -1,6 +1,7 @@
 import { Flowers } from "../modules/flowersClass";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
+import { getCartListLen } from "./getCartListLen";
 
 export function createHtmlForCart(cartList: Flowers[]) {
   const cartContent = document.getElementById("cart-Content") as HTMLDivElement;
@@ -23,6 +24,7 @@ export function createHtmlForCart(cartList: Flowers[]) {
       createHtmlForCart(cartList);
       countTotalPrice();
       checkIfCartIsEmpty();
+      getCartListLen();
     });
 
     removeFlowerBtn.addEventListener("click", () => {
@@ -30,6 +32,7 @@ export function createHtmlForCart(cartList: Flowers[]) {
       createHtmlForCart(cartList);
       countTotalPrice();
       checkIfCartIsEmpty();
+      getCartListLen();
     });
 
     flowerImg.src = cartList[i].img;

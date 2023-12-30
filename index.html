@@ -10,18 +10,34 @@
     <title>Webbshop</title>
   </head>
   <body>
-    <header class="header">
-      <navbar id="navbar">
-        <a href="#start" class="navbar__link">Start</a>
-        <a href="#products" class="navbar__link">Products</a>
-        <div>
-          <a class="navbar__link bi bi-bag-heart cartIcon" id="cartbtn"></a>
-          <p id="totalAmount">total:</p>
+    <!-- -------------------------header---------------- -->
+    <header id="header" class="header">
+      <navbar class="header__mobileContainer">
+        <button
+          id="hamburger-btn"
+          class="bi bi-list header__mobileContainer--hamburger-btn"
+        ></button>
+        <a href="/index.html">
+          <img
+            src="src/img/logo.png"
+            alt="logo"
+            class="header__mobileContainer--logo"
+          />
+        </a>
+        <div class="header__mobileContainer--links">
+          <a href="/index.html">Start</a>
+          <a href="#preview-container">Best selling</a>
+          <a href="#products">Products</a>
         </div>
-        <a class="navbar__link bi bi-cash-coin" id="paymentbtn"></a>
-        <button id="hamburger-btn">Menu</button>
+
+        <div class="header__mobileContainer--cartIcon">
+          <a class="navbar__link bi bi-bag-heart" id="cartbtn"></a>
+          <p class="cartLen" id="cartLen">&nbsp; &nbsp;</p>
+        </div>
       </navbar>
     </header>
+    <!---------------------main-------------------------->
+
     <main>
       <section id="start">
         <div id="hero-container">
@@ -32,13 +48,12 @@
           <h3 id="preview-title">Best selling bouquets</h3>
         </div>
         <div id="preview-container">
-        
           <div class="flower-preview">
             <img src="src/img/flower1.jpg" alt="Bouquet" class="previewImg" />
             <p>Bouquet</p>
           </div>
           <div class="flower-preview">
-            <img src="src/img/flower1.jpg" alt="Bouquet" class="previewImg"  />
+            <img src="src/img/flower1.jpg" alt="Bouquet" class="previewImg" />
 
             <p>Bouquet</p>
           </div>

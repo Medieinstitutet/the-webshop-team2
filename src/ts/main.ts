@@ -4,6 +4,7 @@ import { checkoutContainerCart } from "./functions/checkoutContainerCart";
 import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
 import { createHtmlForFlowers2 } from "./functions/createHtmlForFlowers2";
+import { createMenu } from "./functions/createMenu";
 import {
   flower1,
   flower2,
@@ -72,27 +73,4 @@ if (checkoutBtn) {
   });
 }
 
-/* import { countTotalPrice } from "./countTotalPrice";
-
-export const payContainerPayment = () => {
-  const totalCartContainer = document.getElementById(
-    "totalPayment-container"
-  ) as HTMLDivElement;
-  //if (!document.getElementById("checkout-Container")) {
-  const payContainer = document.createElement("div");
-  const totalAmount = document.createElement("h3");
-
-  totalAmount.id = "totalAmount-text";
-  totalAmount.innerHTML = "total";
-
-  payContainer.className = "payContainer";
-  totalCartContainer.appendChild(payContainer);
-  payContainer.appendChild(totalAmount);
-  countTotalPrice(); */
-
-export const countTotalAmount = () => {
-  const s = cartList.length;
-  console.log(s);
-};
-
-countTotalAmount();
+createMenu();

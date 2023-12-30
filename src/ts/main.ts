@@ -5,6 +5,7 @@ import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
 import { createHtmlForFlowers2 } from "./functions/createHtmlForFlowers2";
 import { createMenu } from "./functions/createMenu";
+import { getCartListLen } from "./functions/getCartListLen";
 import {
   flower1,
   flower2,
@@ -74,3 +75,4 @@ if (checkoutBtn) {
 }
 
 createMenu();
+getCartListLen();

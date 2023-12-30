@@ -1,14 +1,16 @@
 import { cartList } from "../main";
 
 export const countTotalPrice = () => {
-  const totalAmount = document.getElementById(
+  const totalAmount = document.getElementsByClassName(
     "totalAmount-text"
-  ) as HTMLHeadingElement;
+  ) as HTMLCollectionOf<HTMLHeadingElement>;
   if (totalAmount) {
     let totalPrice = 0;
     for (let i = 0; i < cartList.length; i++) {
       totalPrice += cartList[i].price;
-      totalAmount.innerHTML = "Total Amount:" + totalPrice + "kr";
+    }
+    for (let i = 0; i < totalAmount.length; i++) {
+      totalAmount[i].innerHTML = "Total Amount:" + totalPrice + "kr";
     }
   }
 };

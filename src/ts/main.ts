@@ -1,6 +1,7 @@
 import "./../scss/style.scss";
 import { checkIfCartIsEmpty } from "./functions/checkIfCartIsEmpty";
 import { checkoutContainerCart } from "./functions/checkoutContainerCart";
+import { countTotalPrice } from "./functions/countTotalPrice";
 import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
 import { createHtmlForFlowers2 } from "./functions/createHtmlForFlowers2";
@@ -71,8 +72,20 @@ if (checkoutBtn) {
   checkoutBtn.addEventListener("click", () => {
     paymentContainer.style.display = "block";
     createHtmlForCart(cartList);
+    pay();
   });
 }
 
 createMenu();
 getCartListLen();
+
+export const pay = () => {
+  const div = document.getElementById("payment-pay") as HTMLDivElement;
+  const h3 = document.createElement("h3");
+
+  h3.className = "totalAmount-text";
+  h3.innerHTML = "";
+
+  div.appendChild(h3);
+  countTotalPrice();
+};

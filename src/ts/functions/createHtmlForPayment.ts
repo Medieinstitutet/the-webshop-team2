@@ -1,13 +1,15 @@
-import { cartList } from "../main";
+import { cartList, pay } from "../main";
+import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
+import { createHtmlForCart } from "./createHtmlForCart";
+import { getCartListLen } from "./getCartListLen";
 
 export function createHtmlForPayment() {
   document.body.style.overflow = "hidden";
 
   const paymentContent = document.getElementById(
-    "payment-Content"
+    "payment-product"
   ) as HTMLDivElement;
-  paymentContent.className = "paymentContainer__content";
   paymentContent.innerHTML = "";
   for (let i = 0; i < cartList.length; i++) {
     const flowerDiv = document.createElement("div");
@@ -25,23 +27,32 @@ export function createHtmlForPayment() {
       cartList.push(cartList[i]);
       console.log(cartList[i]);
       createHtmlForPayment();
+      checkIfCartIsEmpty();
       countTotalPrice();
+      getCartListLen();
+      createHtmlForCart(cartList);
+      pay();
     });
 
     removeFlowerBtn.addEventListener("click", () => {
       cartList.splice(i, 1);
       createHtmlForPayment();
+      checkIfCartIsEmpty();
       countTotalPrice();
+      getCartListLen();
+      createHtmlForCart(cartList);
+      pay();
     });
 
     flowerImg.src = cartList[i].img;
     flowerTitle.innerHTML = cartList[i].title;
     flowerPrice.innerHTML = cartList[i].price + " kr";
 
-    flowerDiv.className = "cartDiv";
-    flowerImg.className = "cartImg";
-    flowerTitle.className = "flowerTitle";
-    flowerPrice.className = "flowerPrice";
+    flowerDiv.className = "paymentProductList";
+
+    flowerImg.className = "paymentProductList__img";
+    flowerTitle.className = "paymentProductList__img";
+    flowerPrice.className = "paymentProductList__img";
 
     paymentContent.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);

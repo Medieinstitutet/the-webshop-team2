@@ -1,4 +1,4 @@
-import { paymentContainer } from "../main";
+import { pay, paymentContainer } from "../main";
 import { countTotalPrice } from "./countTotalPrice";
 import { createHtmlForPayment } from "./createHtmlForPayment";
 
@@ -11,7 +11,7 @@ export const checkoutContainerCart = () => {
     const totalAmountText = document.createElement("h3");
 
     checkoutContainer.id = "checkout-Container";
-    totalAmountText.id = "totalAmount-text";
+    totalAmountText.className = "totalAmount-text";
 
     totalCartContainer.appendChild(checkoutContainer);
     checkoutContainer.appendChild(totalAmountText);
@@ -26,6 +26,7 @@ export const checkoutContainerCart = () => {
     checkoutBtn.addEventListener("click", () => {
       paymentContainer.style.display = "block";
       createHtmlForPayment();
+      pay();
     });
   }
 };

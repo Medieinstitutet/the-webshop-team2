@@ -90,14 +90,17 @@
       </div>
       <!----------------------------------payment------------------------------->
       <div id="payment-container" class="paymentContainer">
-        <div class="loader"></div>
-        <div
-          class="bi bi-x-lg paymentContainer__close"
-          id="closePaymentContainer"
-        ></div>
-        <div id="totalPayment-container">
-          <div id="payment-Content"></div>
+        <!--  <div class="loader"></div>-->
+        <div class="paymentContainer__close" id="closePaymentContainer">
+          <p class="bi bi-x-lg"></p>
         </div>
+        <hr class="paymentContainer__line" />
+        <div id="payment-Content" class="paymentContent">
+          <div class="paymentContent__product" id="payment-product">hej</div>
+          <hr />
+          <div class="paymentContent__pay" id="payment-pay"></div>
+        </div>
+        <hr />
       </div>
     </main>
     <footer>Copyright &copy;</footer>

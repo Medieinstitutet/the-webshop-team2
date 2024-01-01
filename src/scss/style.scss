@@ -20,9 +20,9 @@ body {
 .header {
   position: sticky;
   top: 0;
+  height: 10vh;
   z-index: 200;
   background-color: rgb(240, 196, 218);
-  height: 5.6rem;
   text-decoration: none;
   &__mobileContainer {
     display: flex;
@@ -104,77 +104,100 @@ body {
     height: 100vh;
   }
 }
-/* ------- */
-#hero-container {
+/* ----------------hero img---------------- */
+.heroContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  background-image: url("/src/img/3roses.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/src/img/3roses.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   width: 100vw;
   height: 50vh;
-  /* margin-top: 5vh; */
-}
-
-#hero-title {
-  z-index: 100;
-  color: rgb(249, 246, 246);
-  font-size: 50px;
-}
-
-#preview-title {
-  margin-top: 3rem;
-  font-size: 1.5rem;
-}
-
-#preview-title-container {
-  display: flex;
-  justify-content: center;
-}
-
-#preview-container {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  /* margin-top: 1rem; */
-  @include m.for-size(tablet) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 2rem;
-    /* margin-top: 1rem; */
+  &__title {
+    z-index: 100;
+    color: rgb(249, 246, 246);
+    font-size: 50px;
   }
 }
 
-.flower-preview {
+/* --------------preview imgs-------------- */
+.previewTitleContainer {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  max-width: 100%;
-  border-radius: 50%;
-  &:hover {
-    transform: scale(1.05);
+
+  &__title {
+    margin-top: 3rem;
+    font-size: 1.5rem;
   }
-  @include m.for-size(tablet) {
-    /* min-width: 20rem; */
-    max-width: 22%;
-    border-radius: 50%;
-    &:hover {
-      transform: scale(1.1);
+}
+
+.previewsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  &__flower {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 48%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 12px;
+
+    &--img {
+      display: block;
+      transition: transform 0.25s, visibility 0.25s ease-in;
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      margin-top: 2%;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    &--name {
+      position: absolute;
+      bottom: 0;
+      background: rgb(0, 0, 0);
+      background: rgba(0, 0, 0, 0.5);
+      color: #f1f1f1;
+      transition: 0.5s ease;
+      opacity: 1;
+      width: 100%;
+      height: 20%;
+      color: white;
+      font-size: 20px;
+      padding: 10%;
+      text-align: center;
+      &:hover {
+        opacity: 1;
+      }
+      @include m.for-size(tablet) {
+        opacity: 0;
+      }
+    }
+
+    @include m.for-size(tablet) {
+      max-width: 22%;
     }
   }
+
+  @include m.for-size(tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
-.previewImg {
-  width: 300px;
-  height: 300px;
-  object-fit: contain;
+.previewsContainer__flower:hover .previewsContainer__flower--name {
+  opacity: 5;
 }
-
+/* ---------producter----------- */
 #products {
   h3 {
     display: flex;

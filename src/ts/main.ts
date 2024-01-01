@@ -81,11 +81,14 @@ getCartListLen();
 
 export const pay = () => {
   const div = document.getElementById("payment-pay") as HTMLDivElement;
-  const h3 = document.createElement("h3");
+  const h3 = document.getElementById("totalAmount-text") as HTMLHeadingElement;
+  if (!h3) {
+    const h3 = document.createElement("h3");
 
-  h3.className = "totalAmount-text";
-  h3.innerHTML = "";
-
-  div.appendChild(h3);
+    h3.className = "totalAmount-text";
+    h3.id = "totalAmount-text";
+    h3.innerHTML = "";
+    div.appendChild(h3);
+  }
   countTotalPrice();
 };

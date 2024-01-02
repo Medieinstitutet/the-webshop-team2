@@ -12,6 +12,7 @@ export function createHtmlForCart(cartList: Flowers[]) {
     const flowerImg = document.createElement("img");
     const flowerTitle = document.createElement("h2");
     const flowerPrice = document.createElement("p");
+    const flowerQuantity = document.createElement("p");
     const removeFlowerBtn = document.createElement("button");
     const addFlowerBtn = document.createElement("button");
 
@@ -40,16 +41,20 @@ export function createHtmlForCart(cartList: Flowers[]) {
     flowerImg.src = cartList[i].img;
     flowerTitle.innerHTML = cartList[i].title;
     flowerPrice.innerHTML = cartList[i].price + " kr";
+    flowerQuantity.innerHTML = cartList[i].quantity.toString();
 
     flowerDiv.className = "cartDiv";
     flowerImg.className = "cartImg";
     flowerTitle.className = "flowerTitle";
+    flowerQuantity.className = "flowerQuantity";
     flowerPrice.className = "flowerPrice";
+    
 
     cartContent?.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);
     flowerDiv.appendChild(flowerTitle);
     flowerDiv.appendChild(flowerPrice);
+    flowerDiv.appendChild(flowerQuantity);
     flowerDiv.appendChild(removeFlowerBtn);
     flowerDiv.appendChild(addFlowerBtn);
   }

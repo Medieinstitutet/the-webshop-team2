@@ -1,4 +1,4 @@
-import { cartList } from "../main";
+/* import { cartList } from "../main";
 import { Flowers } from "../modules/flowersClass";
 import { countTotalPrice } from "./countTotalPrice";
 import { getCartListLen } from "./getCartListLen";
@@ -45,4 +45,4 @@ export function createHtmlForFlowers2(flowerList2: Flowers[]) {
     flowerDiv.appendChild(flowerPrice);
     flowerBtnContainer2.appendChild(flowerBuyBtn);
   }
-}
+} */

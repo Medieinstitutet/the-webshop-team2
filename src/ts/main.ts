@@ -23,7 +23,7 @@ export const flowerList2: Flowers[] = [flower4, flower5, flower6];
 export let cartList: Flowers[] = [];
 
 /* if(localStorage.getItem("product")){
-  cartList = JSON.parse(localStorage.getItem("product") || "")
+ cartList = JSON.parse(localStorage.getItem("product"))
 } */
 
 

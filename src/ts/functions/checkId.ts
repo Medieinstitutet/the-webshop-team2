@@ -1,4 +1,4 @@
-import { cartList, quantityList } from "../main"
+/* import { cartList, quantityList } from "../main"
 
 export const checkId = () => {
     for (let i = 0; i < cartList.length; i++){
@@ -9,4 +9,4 @@ export const checkId = () => {
     }
 
 }
-
+ */

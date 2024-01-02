@@ -1,4 +1,5 @@
 import { Flowers } from "../modules/flowersClass";
+import { checkId } from "./checkId";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
 import { getCartListLen } from "./getCartListLen";
@@ -28,6 +29,7 @@ export function createHtmlForCart(cartList: Flowers[]) {
       countTotalPrice();
       checkIfCartIsEmpty();
       getCartListLen();
+      checkId()
     });
 
     removeFlowerBtn.addEventListener("click", () => {

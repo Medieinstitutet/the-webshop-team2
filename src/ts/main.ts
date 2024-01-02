@@ -21,6 +21,7 @@ import { Flowers } from "./modules/flowersClass";
 export const flowerList: Flowers[] = [flower1, flower2, flower3, flower4, flower5, flower6];
 /* export const flowerList2: Flowers[] = [flower4, flower5, flower6]; */
 export let cartList: Flowers[] = [];
+export let quantityList: number[] = [];
 
 createHtmlForFlowers(flowerList);
 /* createHtmlForFlowers2(flowerList2); */

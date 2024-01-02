@@ -5,5 +5,6 @@ export class Flowers {
         public info:string,
         public price:number,
         public quantity:number,
+        public id:number
     ){}
 }

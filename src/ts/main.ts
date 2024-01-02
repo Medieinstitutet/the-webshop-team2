@@ -22,11 +22,6 @@ export const flowerList: Flowers[] = [flower1, flower2, flower3];
 export const flowerList2: Flowers[] = [flower4, flower5, flower6];
 export let cartList: Flowers[] = [];
 
-/* if(localStorage.getItem("product")){
- cartList = JSON.parse(localStorage.getItem("product"))
-} */
-
-
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
 

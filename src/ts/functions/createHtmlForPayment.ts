@@ -28,7 +28,6 @@ export function createHtmlForPayment() {
 
     addFlowerBtn.addEventListener("click", () => {
       cartList.push(cartList[i]);
-      localStorage.setItem("product", JSON.stringify(cartList));
       createHtmlForPayment();
       checkIfCartIsEmpty();
       countTotalPrice();
@@ -39,7 +38,6 @@ export function createHtmlForPayment() {
 
     removeFlowerBtn.addEventListener("click", () => {
       cartList.splice(i, 1);
-      localStorage.setItem("product", JSON.stringify(cartList));
       createHtmlForPayment();
       checkIfCartIsEmpty();
       countTotalPrice();

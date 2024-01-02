@@ -23,7 +23,6 @@ export function createHtmlForCart(cartList: Flowers[]) {
 
     addFlowerBtn.addEventListener("click", () => {
       cartList.push(cartList[i]);
-      localStorage.setItem("product", JSON.stringify(cartList));
       createHtmlForCart(cartList);
       countTotalPrice();
       checkIfCartIsEmpty();
@@ -32,7 +31,6 @@ export function createHtmlForCart(cartList: Flowers[]) {
 
     removeFlowerBtn.addEventListener("click", () => {
       cartList.splice(i, 1);
-      localStorage.setItem("product", JSON.stringify(cartList));
       createHtmlForCart(cartList);
       countTotalPrice();
       checkIfCartIsEmpty();

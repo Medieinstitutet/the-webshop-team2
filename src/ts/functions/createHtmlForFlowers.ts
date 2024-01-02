@@ -28,8 +28,9 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerInfo.className = "flowerInfo";
     flowerPrice.className = "flowerPrice";
     flowerBuyBtn.className = "flowerBuyBtn";
-/* 
-    const thisId = 0; */
+
+
+    /* const thisId = 0; */ 
     flowerBuyBtn.addEventListener("click", () => {
       
       cartList.push(flowerList[i]);
@@ -40,7 +41,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       }
       }
     );
-  
+
 
     flowerContainer?.appendChild(flowerBtnContainer);
     flowerBtnContainer.appendChild(flowerDiv);

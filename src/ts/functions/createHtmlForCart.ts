@@ -15,6 +15,9 @@ export function createHtmlForCart(cartList: Flowers[]) {
     const removeFlowerBtn = document.createElement("button");
     const addFlowerBtn = document.createElement("button");
 
+    removeFlowerBtn.className = "removeFlowerBtn";
+    addFlowerBtn.className = "addFlowerBtn";
+
     removeFlowerBtn.innerHTML = "-";
     addFlowerBtn.innerHTML = "+";
 

@@ -20,6 +20,9 @@ export function createHtmlForPayment() {
     const removeFlowerBtn = document.createElement("button");
     const addFlowerBtn = document.createElement("button");
 
+    removeFlowerBtn.className = "removeFlowerBtn";
+    addFlowerBtn.className = "addFlowerBtn";
+
     removeFlowerBtn.innerHTML = "-";
     addFlowerBtn.innerHTML = "+";
 
@@ -54,6 +57,7 @@ export function createHtmlForPayment() {
     flowerImg.className = "paymentProductList__img";
     flowerTitle.className = "paymentProductList__img";
     flowerPrice.className = "paymentProductList__img";
+
 
     paymentContent.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);

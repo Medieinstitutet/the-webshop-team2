@@ -1,5 +1,6 @@
 @use "./mixins" as m;
 @import "mixins";
+@import "variables";
 
 * {
   margin: 0;
@@ -8,6 +9,7 @@
 }
 
 body {
+  font-family: "Brush Script MT", cursive;
   overflow-x: hidden;
 }
 .main {
@@ -68,7 +70,6 @@ body {
           color: #000000;
           text-decoration: none;
           font-size: 1.5rem;
-          font-family: "Brush Script MT", cursive;
         }
       }
     }
@@ -233,8 +234,11 @@ body {
 
 .flowerBuyBtn {
   @include forButton;
-  @include hoverEffect;
+  &:hover{
+    @include hoverEffect;
+  }
 }
+
 
 .flowerDiv {
   display: flex;
@@ -271,7 +275,7 @@ body {
   }
 }
 .nice {
-  background-color: red;
+  background-color: beige;
 }
 
 .emptyContainr {
@@ -308,17 +312,46 @@ body {
 
 #cart-Content {
   width: 60%;
-  background-color: cadetblue;
 }
 
 #checkout-Container {
   width: 40%;
   left: 60%;
-  background-color: coral;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+#checkoutBtn {
+  @include forButton;
+  &:hover {
+    @include hoverEffect;
+  }
+}
+
+.addFlowerBtn {
+  @include forButton;
+  padding: 0;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  &:hover{
+    @include hoverEffect;
+  }
+}
+
+.removeFlowerBtn {
+  @include forButton;
+  padding: 0;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  &:hover{
+    @include hoverEffect;
+  }
 }
 
 .addNone {
@@ -380,13 +413,16 @@ body {
     flex-direction: column-reverse;
 
     &--btn{
-    width: 2rem;  
-    }
+      @include forButton;
+      &:hover{
+        @include hoverEffect;
+      }
   }
+}
 }
 
 .simLoad{
-  background-color: aqua;
+  background-color: beige;
   display: none;
   position: fixed;
   width: 30%;
@@ -410,7 +446,7 @@ body {
 .loader {
   width: 48px;
   height: 48px;
-  border: 5px solid #d14848;
+  border: 5px solid #48a1d1;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: block;
@@ -425,3 +461,4 @@ body {
     transform: rotate(360deg);
   }
 }
+

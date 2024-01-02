@@ -15,14 +15,14 @@
 }
 
 @mixin forButton {
-  background-color: rgb(255, 190, 152);
-  border-radius: 10%;
+  background-color: $btncolor;
+  border-radius: 12px;
   height: 2rem;
-  padding: 1rem 1rem 1rem;
+  padding: 0.5rem 2rem;
 }
 
 @mixin hoverEffect {
-  background-color:rgb(248, 202, 175);
+  background-color: rgb(241, 213, 227);
   cursor: pointer;
 }
 

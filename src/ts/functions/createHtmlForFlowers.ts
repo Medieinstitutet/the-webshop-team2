@@ -28,18 +28,19 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerInfo.className = "flowerInfo";
     flowerPrice.className = "flowerPrice";
     flowerBuyBtn.className = "flowerBuyBtn";
-
-    const thisId = 0;
+/* 
+    const thisId = 0; */
     flowerBuyBtn.addEventListener("click", () => {
       
-      if (flowerList[i].id !== thisId) {
-        console.log("id var inte samma!" + thisId);
-      } else {
       cartList.push(flowerList[i]);
       countTotalPrice();
       getCartListLen();
+      if (flowerList[i].id !== cartList[i].id){
+        console.log("id var inte samma!");
       }
-    });
+      }
+    );
+  
 
     flowerContainer?.appendChild(flowerBtnContainer);
     flowerBtnContainer.appendChild(flowerDiv);

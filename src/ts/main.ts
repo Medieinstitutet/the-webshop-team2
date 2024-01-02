@@ -4,7 +4,6 @@ import { checkoutContainerCart } from "./functions/checkoutContainerCart";
 import { countTotalPrice } from "./functions/countTotalPrice";
 import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
-/* import { createHtmlForFlowers2 } from "./functions/createHtmlForFlowers2"; */
 import { createMenu } from "./functions/createMenu";
 import { getCartListLen } from "./functions/getCartListLen";
 import {
@@ -19,12 +18,10 @@ import { Flowers } from "./modules/flowersClass";
 
 
 export const flowerList: Flowers[] = [flower1, flower2, flower3, flower4, flower5, flower6];
-/* export const flowerList2: Flowers[] = [flower4, flower5, flower6]; */
 export let cartList: Flowers[] = [];
 export let quantityList: number[] = [];
 
 createHtmlForFlowers(flowerList);
-/* createHtmlForFlowers2(flowerList2); */
 
 export const cartbtn = document.getElementById("cartbtn");
 export const cartContainer = document.getElementById(

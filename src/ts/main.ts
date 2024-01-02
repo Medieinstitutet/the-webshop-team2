@@ -17,12 +17,10 @@ import {
 } from "./modules/flowerObjects";
 import { Flowers } from "./modules/flowersClass";
 
-//hamburgerbtn?.addEventListener("click", toggleHamburger);
 
 export const flowerList: Flowers[] = [flower1, flower2, flower3];
 export const flowerList2: Flowers[] = [flower4, flower5, flower6];
 export let cartList: Flowers[] = [];
-//export let paymentList: Flowers[] = [];
 
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
@@ -92,3 +90,18 @@ export const pay = () => {
   }
   countTotalPrice();
 };
+
+export const finalPaymentBtn = document.getElementById ("finalPaymentBtn") as HTMLButtonElement;
+
+finalPaymentBtn.addEventListener ("click", () => {
+  const simLoad = document.getElementById ("simLoad") as HTMLDivElement;
+  simLoad.style.display = "block";
+
+  setTimeout(() => {
+  simLoad.style.display = "none";
+
+
+  }, 4000);
+  
+
+})

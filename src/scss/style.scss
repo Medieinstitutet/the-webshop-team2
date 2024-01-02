@@ -291,14 +291,6 @@ body {
   height: 100px;
 }
 
-/* .closeCartContainer {
-  position: relative;
-  left: 90%;
-  top: 90%;
-  font-size: 3rem;
-  margin: 0;
-}
- */
 #totalCart-container {
   position: relative;
   display: flex;
@@ -393,6 +385,12 @@ body {
 
 .simLoad{
   background-color: aqua;
+  display: none;
+  position: fixed;
+  width: 30%;
+  height: 20%;
+  left: 35%;
+  top: 40%;
 }
 
 

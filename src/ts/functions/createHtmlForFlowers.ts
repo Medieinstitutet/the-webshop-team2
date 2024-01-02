@@ -30,10 +30,13 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerBuyBtn.className = "flowerBuyBtn";
 
     flowerBuyBtn.addEventListener("click", () => {
+      if (flowerList[i].id == cartList[i].id) {
+      
+      } else {
       cartList.push(flowerList[i]);
-      quantityList.push(flowerList[i].quantity);
       countTotalPrice();
       getCartListLen();
+      }
     });
 
     flowerContainer?.appendChild(flowerBtnContainer);

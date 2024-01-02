@@ -1,4 +1,4 @@
-import { cartList, quantityList } from "../main";
+import { cartList } from "../main";
 import { Flowers } from "../modules/flowersClass";
 import { countTotalPrice } from "./countTotalPrice";
 import { getCartListLen } from "./getCartListLen";
@@ -29,9 +29,11 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerPrice.className = "flowerPrice";
     flowerBuyBtn.className = "flowerBuyBtn";
 
+    const thisId = 0;
     flowerBuyBtn.addEventListener("click", () => {
-      if (flowerList[i].id == cartList[i].id) {
       
+      if (flowerList[i].id !== thisId) {
+        console.log("id var inte samma!" + thisId);
       } else {
       cartList.push(flowerList[i]);
       countTotalPrice();

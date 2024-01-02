@@ -361,13 +361,16 @@ body {
 
 .paymentContent {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   &__product {
     flex: 50%;
     background-color: #ffffff;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
+    width: 90%;
+
     &--img {
       width: 4rem;
     }
@@ -376,8 +379,23 @@ body {
     flex: 49%;
     background-color: #ffffff;
     min-height: 70vh;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+
+    &--btn{
+    width: 2rem;  
+    }
   }
 }
+
+.simLoad{
+  background-color: aqua;
+}
+
+
 
 .paymentProductList {
   display: flex;

@@ -1,5 +1,6 @@
 @use "./variables" as v;
 
+
 @mixin for-size($size) {
   @if $size == tablet {
     @media screen and (min-width: v.$tablet) {
@@ -11,6 +12,18 @@
       @content;
     }
   }
+}
+
+@mixin forButton {
+  background-color: rgb(255, 190, 152);
+  border-radius: 10%;
+  height: 2rem;
+  padding: 1rem 1rem 1rem;
+}
+
+@mixin hoverEffect {
+  background-color:rgb(248, 202, 175);
+  cursor: pointer;
 }
 
 //För att använda

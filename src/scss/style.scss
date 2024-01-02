@@ -395,6 +395,8 @@ body {
 
 
 
+
+
 .paymentProductList {
   display: flex;
   &__img {
@@ -409,7 +411,7 @@ body {
   border: 5px solid #d14848;
   border-bottom-color: transparent;
   border-radius: 50%;
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }

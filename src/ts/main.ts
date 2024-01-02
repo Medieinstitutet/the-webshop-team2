@@ -22,6 +22,10 @@ export const flowerList: Flowers[] = [flower1, flower2, flower3];
 export const flowerList2: Flowers[] = [flower4, flower5, flower6];
 export let cartList: Flowers[] = [];
 
+if(localStorage.getItem("product")){
+  cartList = JSON.parse(localStorage.getItem("product") || "")
+}
+
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
 
@@ -96,12 +100,17 @@ export const finalPaymentBtn = document.getElementById ("finalPaymentBtn") as HT
 finalPaymentBtn.addEventListener ("click", () => {
   const simLoad = document.getElementById ("simLoad") as HTMLDivElement;
   simLoad.style.display = "block";
-
-  setTimeout(() => {
-  simLoad.style.display = "none";
-
-
-  }, 4000);
   
-
+  setTimeout(() => {
+    const simTitle = document.getElementById ("simTitle") as HTMLDivElement;
+    const loader = document.getElementById ("loader") as HTMLDivElement;
+          simTitle.innerHTML = "purchase succeeded!"
+          const orderNumber = document.createElement("p")
+          orderNumber.innerHTML = "Ordernumber: 123456"
+          simLoad.appendChild(orderNumber)
+    setTimeout(() => {
+      simLoad.style.display = "none"
+    }, 4000)
+    loader.style.display = "none";
+  }, 4000);
 })

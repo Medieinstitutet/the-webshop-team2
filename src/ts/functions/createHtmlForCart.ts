@@ -1,6 +1,7 @@
+
 import { quantityList } from "../main";
 import { Flowers } from "../modules/flowersClass";
-//import { checkId } from "./checkId";
+
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
 import { getCartListLen } from "./getCartListLen";
@@ -25,24 +26,14 @@ export function createHtmlForCart(cartList: Flowers[]) {
     addFlowerBtn.innerHTML = "+";
 
     addFlowerBtn.addEventListener("click", () => {
-      quantityList.push(cartList[i].quantity)
-      for (let j = 0; j < cartList.length; j++) {
-        if(cartList[i].id == cartList[j].id){
-          console.log("det var lik" + quantityList);
-          createHtmlForCart(cartList);
-          countTotalPrice();
-          checkIfCartIsEmpty();
-          getCartListLen();
-        }else{  
-          cartList.push(cartList[i]);
-          createHtmlForCart(cartList);
-          countTotalPrice();
-          checkIfCartIsEmpty();
-          getCartListLen();
-        }
-      }
-    });
 
+        cartList.push(cartList[i]);
+        createHtmlForCart(cartList);
+          countTotalPrice();
+          checkIfCartIsEmpty();
+          getCartListLen(); 
+    
+    });
     removeFlowerBtn.addEventListener("click", () => {
       cartList.splice(i, 1);
       createHtmlForCart(cartList);
@@ -54,7 +45,7 @@ export function createHtmlForCart(cartList: Flowers[]) {
     flowerImg.src = cartList[i].img;
     flowerTitle.innerHTML = cartList[i].title;
     flowerPrice.innerHTML = cartList[i].price + " kr";
-    flowerQuantity.innerHTML = cartList.length.toString();
+    flowerQuantity.innerHTML = quantityList.toString();
 
     flowerDiv.className = "cartDiv";
     flowerImg.className = "cartImg";

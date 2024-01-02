@@ -32,6 +32,7 @@ export function createHtmlForFlowers2(flowerList2: Flowers[]) {
     flowerBuyBtn.addEventListener("click", addToCart);
     function addToCart() {
       cartList.push(flowerList2[i]);
+      localStorage.setItem("product", JSON.stringify(cartList));
       countTotalPrice();
       getCartListLen();
     }

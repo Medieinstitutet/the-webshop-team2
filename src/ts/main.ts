@@ -26,6 +26,7 @@ if(localStorage.getItem("product")){
   cartList = JSON.parse(localStorage.getItem("product") || "")
 }
 
+
 createHtmlForFlowers(flowerList);
 createHtmlForFlowers2(flowerList2);
 

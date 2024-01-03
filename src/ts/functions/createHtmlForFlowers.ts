@@ -34,14 +34,12 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
 
 
     /* const thisId = 0; */ 
-    flowerBuyBtn.addEventListener("click", () => {addToCart(flowerList[i])});
+    flowerBuyBtn.addEventListener("click", () => {addToCart(flowerList[i])
     
-    
-    /*       cartList.push(flowerList[i]);
-          console.log(cartList);
-          
-          countTotalPrice();
-          getCartListLen(); */
+      countTotalPrice();
+      getCartListLen();
+    });
+
 
     flowerDiv.addEventListener ("click", () => {
       const productModal = document.createElement("div");

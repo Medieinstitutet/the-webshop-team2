@@ -118,7 +118,7 @@ finalPaymentBtn.addEventListener ("click", () => {
 export const addToCart = (flower:Flowers) => {
   const isItemInCart = cartList.find((cartItem) => cartItem.id === flower.id);
   if (!isItemInCart) {
-    const cartFlower = new Flowers(
+/*     const cartFlower = new Flowers(
       flower.img,
       flower.title,
       flower.info,
@@ -126,8 +126,8 @@ export const addToCart = (flower:Flowers) => {
       flower.price,
       flower.id,
       )
-      quantity: 1;
-    cartList.push(cartFlower)
+      quantity: 1; */
+    cartList.push(flower)
     totalQuantity += 1;
     console.log("det finns inte");
     console.log("totalQuantity i if:" + totalQuantity);

@@ -33,11 +33,10 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerBuyBtn.addEventListener("click", () => {
       
       cartList.push(flowerList[i]);
+      console.log(cartList);
+      
       countTotalPrice();
       getCartListLen();
-      if (flowerList[i].id !== cartList[i].id){
-        console.log("id var inte samma!");
-      }
       }
     );
   

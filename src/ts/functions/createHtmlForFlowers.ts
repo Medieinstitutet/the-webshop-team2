@@ -46,9 +46,36 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
 
     flowerDiv.addEventListener ("click", () => {
       const productModal = document.createElement("div");
+      const productModalImg = document.createElement("img")
+      const productModalTitle = document.createElement("h3")
+      const productModalInfo = document.createElement("p")
+      const productModalPrice = document.createElement("p")
+      const productModalClose = document.createElement("button")
+
+      productModalImg.src = flowerList[i].img
+      productModalTitle.innerHTML = flowerList[i].title
+      productModalInfo.innerHTML = flowerList[i].info
+      productModalPrice.innerHTML = flowerList[i].price + " kr"
+
+      
+
       productModal.id = "productModal";
       productModal.className = "productModal";
+      productModalClose.className = "bi bi-x-lg"
+      productModalClose.id = "productModalClose"
+      
+      if (productModalClose) {        
+        productModalClose.addEventListener("click", () =>  {
+          productModal.style.display = "none"
+        })
+      }
+
       document.body.appendChild(productModal);
+      productModal.appendChild(productModalImg)
+      productModal.appendChild(productModalTitle)
+      productModal.appendChild(productModalInfo)
+      productModal.appendChild(productModalPrice)
+      productModal.appendChild(productModalClose)
       productModal.style.display = "block";
     });
 

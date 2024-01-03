@@ -1,6 +1,8 @@
 import { cartList } from "../main";
 import { Flowers } from "../modules/flowersClass";
+import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
+import { createHtmlForCart } from "./createHtmlForCart";
 import { getCartListLen } from "./getCartListLen";
 
 export function createHtmlForFlowers(flowerList: Flowers[]) {
@@ -52,23 +54,33 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       const productModalInfo = document.createElement("p")
       const productModalPrice = document.createElement("p")
       const productModalClose = document.createElement("button")
+      const addToCartbtn = document.createElement ("button");
 
       productModalImg.src = flowerList[i].img
       productModalTitle.innerHTML = flowerList[i].title
       productModalInfo.innerHTML = flowerList[i].productinfo
       productModalPrice.innerHTML = flowerList[i].price + " kr"
+      addToCartbtn.innerHTML = "Add to cart";
 
       
 
       productModal.id = "productModal";
       productModal.className = "productModal";
-      productModalClose.className = "bi bi-x-lg"
-      productModalClose.id = "productModalClose"
+      productModalClose.className = "bi bi-x-lg";
+      productModalClose.id = "productModalClose";
       productModalContainer.className = "productModalContainer";
+      productModalImg.className = "productModalContainer__img";
+
+      addToCartbtn.addEventListener("click", () => {
+        cartList.push(flowerList[i]);
+          countTotalPrice();
+          checkIfCartIsEmpty();
+          getCartListLen(); 
+    
+    });
       
       if (productModalClose) {        
         productModalClose.addEventListener("click", () =>  {
-          /* productModal.style.display = "none" */
           productModal.remove();
         })
       }
@@ -79,6 +91,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       productModalContainer.appendChild(productModalTitle)
       productModalContainer.appendChild(productModalInfo)
       productModalContainer.appendChild(productModalPrice)
+      productModalContainer.appendChild(addToCartbtn)
       productModal.appendChild(productModalClose)
       /* productModal.style.display = "block"; */
     });

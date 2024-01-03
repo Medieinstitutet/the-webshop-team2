@@ -1,4 +1,4 @@
-import { cartList, pay } from "../main";
+import { addToCart, cartList, pay } from "../main";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
 import { createHtmlForCart } from "./createHtmlForCart";
@@ -16,6 +16,8 @@ export function createHtmlForPayment() {
     const flowerImg = document.createElement("img");
     const flowerTitle = document.createElement("h2");
     const flowerPrice = document.createElement("p");
+    const flowerQuantity = document.createElement("p");
+
 
     const removeFlowerBtn = document.createElement("button");
     const addFlowerBtn = document.createElement("button");
@@ -27,7 +29,7 @@ export function createHtmlForPayment() {
     addFlowerBtn.innerHTML = "+";
 
     addFlowerBtn.addEventListener("click", () => {
-      cartList.push(cartList[i]);
+      addToCart(cartList[i].product)
       createHtmlForPayment();
       checkIfCartIsEmpty();
       countTotalPrice();
@@ -37,7 +39,11 @@ export function createHtmlForPayment() {
     });
 
     removeFlowerBtn.addEventListener("click", () => {
-      cartList.splice(i, 1);
+      if (cartList[i].quantity > 1){
+        cartList[i].quantity = cartList[i].quantity -1;
+       } else {
+        cartList.splice(i, 1);
+       }
       createHtmlForPayment();
       checkIfCartIsEmpty();
       countTotalPrice();
@@ -46,9 +52,10 @@ export function createHtmlForPayment() {
       pay();
     });
 
-    flowerImg.src = cartList[i].img;
-    flowerTitle.innerHTML = cartList[i].title;
-    flowerPrice.innerHTML = cartList[i].price + " kr";
+    flowerImg.src = cartList[i].product.img;
+    flowerTitle.innerHTML = cartList[i].product.title;
+    flowerPrice.innerHTML = cartList[i].product.price + " kr";
+    flowerQuantity.innerHTML = cartList[i].quantity.toString();
 
     flowerDiv.className = "paymentProductList";
 
@@ -62,6 +69,8 @@ export function createHtmlForPayment() {
     flowerDiv.appendChild(flowerTitle);
     flowerDiv.appendChild(flowerPrice);
     flowerDiv.appendChild(removeFlowerBtn);
+    flowerDiv.appendChild(flowerQuantity);
     flowerDiv.appendChild(addFlowerBtn);
+
   }
 }

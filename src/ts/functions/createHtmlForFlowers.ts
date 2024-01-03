@@ -34,15 +34,8 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerBuyBtn.className = "flowerBuyBtn";
 
 
-    /* const thisId = 0; */ 
+    
     flowerBuyBtn.addEventListener("click", () => {addToCart(flowerList[i])
-    const cartItem = new CartItem(flowerList[i], 1);
-/*     console.log(cartList);
-   console.log(flowerList);
-   console.log(cartItem);
-    */
-   
-   
       countTotalPrice();
       getCartListLen();
     });
@@ -74,8 +67,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       productModalImg.className = "productModalContainer__img";
 
       addToCartbtn.addEventListener("click", () => {
-/*           cartList.push(CartItem);
- */          countTotalPrice();
+          countTotalPrice();
           checkIfCartIsEmpty();
           getCartListLen(); 
       
@@ -97,7 +89,6 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       productModalContainer.appendChild(productModalPrice)
       productModalContainer.appendChild(addToCartbtn)
       productModal.appendChild(productModalClose)
-      /* productModal.style.display = "block"; */
     });
 
 

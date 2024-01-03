@@ -1,5 +1,6 @@
 
 
+import { addToCart} from "../main";
 import { CartItem } from "../modules/cartItem";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
@@ -25,16 +26,22 @@ export function createHtmlForCart(cartList: CartItem[]) {
     addFlowerBtn.innerHTML = "+";
 
     addFlowerBtn.addEventListener("click", () => {
-
-        cartList.push(cartList[i]);
+         addToCart(cartList[i].product)
         createHtmlForCart(cartList);
           countTotalPrice();
           checkIfCartIsEmpty();
-          getCartListLen(); 
+          getCartListLen();
+          
+    
     
     });
     removeFlowerBtn.addEventListener("click", () => {
-      cartList.splice(i, 1);
+      if (cartList[i].quantity > 1){
+        cartList[i].quantity = cartList[i].quantity -1;
+       } else {
+        cartList.splice(i, 1);
+       }
+    
       createHtmlForCart(cartList);
       countTotalPrice();
       checkIfCartIsEmpty();
@@ -44,9 +51,7 @@ export function createHtmlForCart(cartList: CartItem[]) {
     flowerImg.src = cartList[i].product.img;
     flowerTitle.innerHTML = cartList[i].product.title;
     flowerPrice.innerHTML = cartList[i].product.price + " kr";
-    flowerQuantity.innerHTML = cartList[i].quantity.toString();
-    console.log(cartList[i].quantity);
-    
+    flowerQuantity.innerHTML = cartList[i].quantity.toString();    
 
     flowerDiv.className = "cartDiv";
     flowerImg.className = "cartImg";

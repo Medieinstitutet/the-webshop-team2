@@ -115,18 +115,22 @@ finalPaymentBtn.addEventListener ("click", () => {
 })
 
 
-/*  export const addToCart = (flower:Flowers) => {
-
-  const isItemInCart = cartList.indexOf((cartItem) => cartItem.product.id === flower.id);
-  if (isItemInCart < 0) {
+export const addToCart = (flower:Flowers) => {
+  const isItemInCart = cartList.find((cartItem) => cartItem.product.id === flower.id);
+  if (!isItemInCart) {
     const cartItem = new CartItem(flower, 1);
     cartList.push(cartItem);
+    console.log("pushat " + cartItem.quantity);
+    console.log(cartList);
+    
+    
   }
   else {
-    cartList[isItemInCart].quantity++;
+    //cartList[isItemInCart].quantity++;
+    console.log("det finns!")
   }
 
-  }  */
+  } 
 
   
   

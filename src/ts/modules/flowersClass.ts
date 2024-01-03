@@ -1,5 +1,4 @@
 export class Flowers {
-    quantity:number;
     constructor (
         public img:string, 
         public title:string,
@@ -8,6 +7,5 @@ export class Flowers {
         public price:number,
         public id:number
     ){
-        this.quantity = 1;
     }
 }

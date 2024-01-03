@@ -15,6 +15,7 @@ import {
   flower6,
 } from "./modules/flowerObjects";
 import { Flowers } from "./modules/flowersClass";
+import { Quantity } from "./modules/quantity";
 
 
 export const flowerList: Flowers[] = [flower1, flower2, flower3, flower4, flower5, flower6];

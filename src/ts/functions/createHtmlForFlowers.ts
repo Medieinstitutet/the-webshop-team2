@@ -22,14 +22,16 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerPrice.innerHTML = flowerList[i].price + " kr";
     flowerBuyBtn.innerHTML = "Buy";
 
+    flowerDiv.id = "flowerDiv";
     flowerDiv.className = "flowerDiv";
     flowerImg.className = "flowerImg";
     flowerTitle.className = "flowerTitle";
     flowerInfo.className = "flowerInfo";
     flowerPrice.className = "flowerPrice";
     flowerBuyBtn.className = "flowerBuyBtn";
-/* 
-    const thisId = 0; */
+
+
+    /* const thisId = 0; */ 
     flowerBuyBtn.addEventListener("click", () => {
       
       cartList.push(flowerList[i]);
@@ -38,8 +40,18 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       countTotalPrice();
       getCartListLen();
       }
+
+      
     );
-  
+
+    flowerDiv.addEventListener ("click", () => {
+      const productModal = document.createElement("div");
+      productModal.id = "productModal";
+      productModal.className = "productModal";
+      document.body.appendChild(productModal);
+      productModal.style.display = "block";
+    });
+
 
     flowerContainer?.appendChild(flowerBtnContainer);
     flowerBtnContainer.appendChild(flowerDiv);
@@ -50,3 +62,5 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerBtnContainer?.appendChild(flowerBuyBtn);
   }
 }
+
+

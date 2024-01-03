@@ -126,8 +126,11 @@ export const addToCart = (flower:Flowers) => {
     
   }
   else {
-    //cartList[isItemInCart].quantity++;
-    console.log("det finns!")
+    for (let i = 0; i < cartList.length; i++) {
+      
+    cartList[i].quantity++;
+    }
+    console.log("det finns!" + cartList);
   }
 
   }  

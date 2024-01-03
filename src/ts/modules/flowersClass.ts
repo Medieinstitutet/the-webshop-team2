@@ -3,6 +3,7 @@ export class Flowers {
         public img:string, 
         public title:string,
         public info:string,
+        public productinfo:string,
         public price:number,
         public quantity:number,
         public id:number

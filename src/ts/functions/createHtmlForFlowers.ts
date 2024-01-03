@@ -1,6 +1,8 @@
 import { addToCart, cartList } from "../main";
 import { Flowers } from "../modules/flowersClass";
+import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
+import { createHtmlForCart } from "./createHtmlForCart";
 import { getCartListLen } from "./getCartListLen";
 
 export function createHtmlForFlowers(flowerList: Flowers[]) {
@@ -43,37 +45,52 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
 
     flowerDiv.addEventListener ("click", () => {
       const productModal = document.createElement("div");
+      const productModalContainer = document.createElement("div");
       const productModalImg = document.createElement("img")
       const productModalTitle = document.createElement("h3")
       const productModalInfo = document.createElement("p")
       const productModalPrice = document.createElement("p")
       const productModalClose = document.createElement("button")
+      const addToCartbtn = document.createElement ("button");
 
       productModalImg.src = flowerList[i].img
       productModalTitle.innerHTML = flowerList[i].title
-      productModalInfo.innerHTML = flowerList[i].info
+      productModalInfo.innerHTML = flowerList[i].productinfo
       productModalPrice.innerHTML = flowerList[i].price + " kr"
+      addToCartbtn.innerHTML = "Add to cart";
 
       
 
       productModal.id = "productModal";
       productModal.className = "productModal";
-      productModalClose.className = "bi bi-x-lg"
-      productModalClose.id = "productModalClose"
+      productModalClose.className = "bi bi-x-lg";
+      productModalClose.id = "productModalClose";
+      productModalContainer.className = "productModalContainer";
+      productModalImg.className = "productModalContainer__img";
+
+      addToCartbtn.addEventListener("click", () => {
+        cartList.push(flowerList[i]);
+          countTotalPrice();
+          checkIfCartIsEmpty();
+          getCartListLen(); 
+    
+    });
       
       if (productModalClose) {        
         productModalClose.addEventListener("click", () =>  {
-          productModal.style.display = "none"
+          productModal.remove();
         })
       }
 
       document.body.appendChild(productModal);
+      productModal.appendChild(productModalContainer)
       productModal.appendChild(productModalImg)
-      productModal.appendChild(productModalTitle)
-      productModal.appendChild(productModalInfo)
-      productModal.appendChild(productModalPrice)
+      productModalContainer.appendChild(productModalTitle)
+      productModalContainer.appendChild(productModalInfo)
+      productModalContainer.appendChild(productModalPrice)
+      productModalContainer.appendChild(addToCartbtn)
       productModal.appendChild(productModalClose)
-      productModal.style.display = "block";
+      /* productModal.style.display = "block"; */
     });
 
 

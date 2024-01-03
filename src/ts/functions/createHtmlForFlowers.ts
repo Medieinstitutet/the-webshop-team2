@@ -1,4 +1,4 @@
-import { addToCart, cartList } from "../main";
+import { /* addToCart,  */cartList } from "../main";
 import { CartItem } from "../modules/cartItem";
 import { Flowers } from "../modules/flowersClass";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
@@ -35,7 +35,13 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
 
 
     /* const thisId = 0; */ 
-    flowerBuyBtn.addEventListener("click", () => {addToCart(flowerList[i])
+    flowerBuyBtn.addEventListener("click", () => {/* addToCart(flowerList[i]) */
+    const cartItem = new CartItem(flowerList[i], 1);
+    console.log(cartList);
+   console.log(flowerList);
+   console.log(cartItem);
+   
+   
    
       countTotalPrice();
       getCartListLen();
@@ -68,10 +74,12 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       productModalImg.className = "productModalContainer__img";
 
       addToCartbtn.addEventListener("click", () => {
-        cartList.push(flowerList[i]);
-          countTotalPrice();
+/*           cartList.push(CartItem);
+ */          countTotalPrice();
           checkIfCartIsEmpty();
           getCartListLen(); 
+      
+          
     
     });
       

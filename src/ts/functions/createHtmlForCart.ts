@@ -1,12 +1,11 @@
 
-import { quantityList } from "../main";
-import { Flowers } from "../modules/flowersClass";
 
+import { CartItem } from "../modules/cartItem";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
 import { getCartListLen } from "./getCartListLen";
 
-export function createHtmlForCart(cartList: Flowers[]) {
+export function createHtmlForCart(cartList: CartItem[]) {
   const cartContent = document.getElementById("cart-Content") as HTMLDivElement;
   cartContent.innerHTML = "";
 
@@ -42,9 +41,9 @@ export function createHtmlForCart(cartList: Flowers[]) {
       getCartListLen();
     });
 
-    flowerImg.src = cartList[i].img;
-    flowerTitle.innerHTML = cartList[i].title;
-    flowerPrice.innerHTML = cartList[i].price + " kr";
+    flowerImg.src = cartList[i].product.img;
+    flowerTitle.innerHTML = cartList[i].product.title;
+    flowerPrice.innerHTML = cartList[i].product.price + " kr";
     flowerQuantity.innerHTML = cartList[i].quantity.toString();
 
     flowerDiv.className = "cartDiv";

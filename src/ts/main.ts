@@ -15,7 +15,7 @@ import {
   flower6,
 } from "./modules/flowerObjects";
 import { Flowers } from "./modules/flowersClass";
-import { CartItem, Quantity } from "./modules/cartItem";
+import { CartItem} from "./modules/cartItem";
 
 
 export const flowerList: Flowers[] = [flower1, flower2, flower3, flower4, flower5, flower6];
@@ -115,7 +115,7 @@ finalPaymentBtn.addEventListener ("click", () => {
 })
 
 
- export const addToCart = (flower:Flowers) => {
+/*  export const addToCart = (flower:Flowers) => {
 
   const isItemInCart = cartList.indexOf((cartItem) => cartItem.product.id === flower.id);
   if (isItemInCart < 0) {
@@ -126,7 +126,7 @@ finalPaymentBtn.addEventListener ("click", () => {
     cartList[isItemInCart].quantity++;
   }
 
-  } 
+  }  */
 
   
   

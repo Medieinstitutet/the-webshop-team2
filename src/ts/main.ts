@@ -115,7 +115,7 @@ finalPaymentBtn.addEventListener ("click", () => {
 })
 
 
-/*  export const addToCart = (flower:Flowers) => {
+export const addToCart = (flower:Flowers) => {
 
   const isItemInCart = cartList.indexOf((cartItem) => cartItem.product.id === flower.id);
   if (isItemInCart < 0) {
@@ -126,7 +126,7 @@ finalPaymentBtn.addEventListener ("click", () => {
     cartList[isItemInCart].quantity++;
   }
 
-  }  */
-
+  }  
+ 
   
   

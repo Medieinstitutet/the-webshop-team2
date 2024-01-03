@@ -8,6 +8,6 @@ export class Flowers {
         public price:number,
         public id:number
     ){
-        this.quantity = 0;
+        this.quantity = 1;
     }
 }

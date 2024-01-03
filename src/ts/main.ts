@@ -20,6 +20,7 @@ import { Flowers } from "./modules/flowersClass";
 export const flowerList: Flowers[] = [flower1, flower2, flower3, flower4, flower5, flower6];
 export let cartList: Flowers[] = [];
 export let quantityList: number[] = [];
+export let totalQuantity: number = 0;
 
 createHtmlForFlowers(flowerList);
 
@@ -121,19 +122,24 @@ export const addToCart = (flower:Flowers) => {
       flower.img,
       flower.title,
       flower.info,
+      flower.productinfo,
       flower.price,
-      1,
-      flower.id
-    )
+      flower.id,
+      )
+      quantity: 1;
     cartList.push(cartFlower)
+    totalQuantity += 1;
     console.log("det finns inte");
-    console.log(cartList);
+    console.log("totalQuantity i if:" + totalQuantity);
     
   }else{
     console.log("det finns redan");
-    console.log(cartList);
-        
+    console.log(flower.quantity);
+    flower.quantity += 1;  
+    totalQuantity += 1;
+    console.log("totalQuantity i else:" + totalQuantity);
+    
   }
-  
+
   }
   

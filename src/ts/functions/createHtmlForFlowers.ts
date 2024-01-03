@@ -35,7 +35,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
 
     /* const thisId = 0; */ 
     flowerBuyBtn.addEventListener("click", () => {addToCart(flowerList[i])});
-    console.log(cartList);
+    
     
     /*       cartList.push(flowerList[i]);
           console.log(cartList);

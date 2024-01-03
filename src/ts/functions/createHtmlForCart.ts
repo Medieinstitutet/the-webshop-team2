@@ -45,7 +45,7 @@ export function createHtmlForCart(cartList: Flowers[]) {
     flowerImg.src = cartList[i].img;
     flowerTitle.innerHTML = cartList[i].title;
     flowerPrice.innerHTML = cartList[i].price + " kr";
-    flowerQuantity.innerHTML = quantityList.toString();
+    flowerQuantity.innerHTML = cartList[i].quantity.toString();
 
     flowerDiv.className = "cartDiv";
     flowerImg.className = "cartImg";

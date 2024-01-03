@@ -18,7 +18,6 @@ export function createHtmlForPayment() {
     const flowerPrice = document.createElement("p");
     const flowerQuantity = document.createElement("p");
 
-
     const removeFlowerBtn = document.createElement("button");
     const addFlowerBtn = document.createElement("button");
 
@@ -29,7 +28,7 @@ export function createHtmlForPayment() {
     addFlowerBtn.innerHTML = "+";
 
     addFlowerBtn.addEventListener("click", () => {
-      addToCart(cartList[i].product)
+      addToCart(cartList[i].product);
       createHtmlForPayment();
       checkIfCartIsEmpty();
       countTotalPrice();
@@ -39,11 +38,11 @@ export function createHtmlForPayment() {
     });
 
     removeFlowerBtn.addEventListener("click", () => {
-      if (cartList[i].quantity > 1){
-        cartList[i].quantity = cartList[i].quantity -1;
-       } else {
+      if (cartList[i].quantity > 1) {
+        cartList[i].quantity = cartList[i].quantity - 1;
+      } else {
         cartList.splice(i, 1);
-       }
+      }
       createHtmlForPayment();
       checkIfCartIsEmpty();
       countTotalPrice();
@@ -60,9 +59,8 @@ export function createHtmlForPayment() {
     flowerDiv.className = "paymentProductList";
 
     flowerImg.className = "paymentProductList__img";
-    flowerTitle.className = "paymentProductList__img";
-    flowerPrice.className = "paymentProductList__img";
-
+    flowerTitle.className = "paymentProductList__title";
+    flowerPrice.className = "paymentProductList__price";
 
     paymentContent.appendChild(flowerDiv);
     flowerDiv.appendChild(flowerImg);
@@ -71,6 +69,5 @@ export function createHtmlForPayment() {
     flowerDiv.appendChild(removeFlowerBtn);
     flowerDiv.appendChild(flowerQuantity);
     flowerDiv.appendChild(addFlowerBtn);
-
   }
 }

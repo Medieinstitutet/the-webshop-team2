@@ -15,12 +15,17 @@ import {
   flower6,
 } from "./modules/flowerObjects";
 import { Flowers } from "./modules/flowersClass";
-import { CartItem} from "./modules/cartItem";
+import { CartItem } from "./modules/cartItem";
 
-
-export const flowerList: Flowers[] = [flower1, flower2, flower3, flower4, flower5, flower6];
+export const flowerList: Flowers[] = [
+  flower1,
+  flower2,
+  flower3,
+  flower4,
+  flower5,
+  flower6,
+];
 export let cartList: CartItem[] = [];
-
 
 createHtmlForFlowers(flowerList);
 
@@ -90,44 +95,40 @@ export const pay = () => {
   countTotalPrice();
 };
 
-export const finalPaymentBtn = document.getElementById ("finalPaymentBtn") as HTMLButtonElement;
+export const finalPaymentBtn = document.getElementById(
+  "finalPaymentBtn"
+) as HTMLButtonElement;
 
-finalPaymentBtn.addEventListener ("click", () => {
-  const simLoad = document.getElementById ("simLoad") as HTMLDivElement;
+finalPaymentBtn.addEventListener("click", () => {
+  const simLoad = document.getElementById("simLoad") as HTMLDivElement;
   simLoad.style.display = "block";
-  
+
   setTimeout(() => {
-    const simTitle = document.getElementById ("simTitle") as HTMLDivElement;
-    const loader = document.getElementById ("loader") as HTMLDivElement;
-          simTitle.innerHTML = "purchase succeeded!";
-          const orderNumber = document.createElement("p");
-          orderNumber.id = "orderNumber"
-          orderNumber.innerHTML = "Ordernumber: 123456";
-          simLoad.appendChild(orderNumber);
-          console.log(cartList);
-          cartList.splice(0);
-          console.log(cartList);
+    const simTitle = document.getElementById("simTitle") as HTMLDivElement;
+    const loader = document.getElementById("loader") as HTMLDivElement;
+    simTitle.innerHTML = "purchase succeeded!";
+    const orderNumber = document.createElement("p");
+    orderNumber.id = "orderNumber";
+    orderNumber.innerHTML = "Ordernumber: 123456";
+    simLoad.appendChild(orderNumber);
+    console.log(cartList);
+    cartList.splice(0);
+    console.log(cartList);
     setTimeout(() => {
       simLoad.style.display = "none";
-    }, 1000)
+    }, 1000);
     loader.style.display = "none";
   }, 1000);
-})
+});
 
-
-  export const addToCart = (flower:Flowers) => {
-  const isItemInCart = cartList.find((cartItem) => cartItem.product.id === flower.id);
+export const addToCart = (flower: Flowers) => {
+  const isItemInCart = cartList.find(
+    (cartItem) => cartItem.product.id === flower.id
+  );
   if (!isItemInCart) {
     const cartItem = new CartItem(flower, 1);
-    cartList.push(cartItem);    
+    cartList.push(cartItem);
+  } else {
+    isItemInCart.quantity++;
   }
-  else {
-    isItemInCart.quantity++
-  } 
-}
-
-
-
-
-  
-  
+};

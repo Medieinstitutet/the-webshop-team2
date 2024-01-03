@@ -11,8 +11,8 @@ export const flower6 = new Flowers ("/src/img/flower6.jpg", "Roses 6", "A bouque
 /* 
 Flower 1: A summer bouquet with chrysanthemum flowers
 Flower 2: A nice bouquet with gerbera and chrysanthemum flowers
-Flower 3: A perfect autumn bouquet with sunflowers and ...
+Flower 3: A perfect autumn bouquet with sunflowers and and other nice flowers.
 Flower 4: A mixed boquet, perfect for fathers day. 
 Flower 5: A boquet of eight pink roses, perfect for Valentines day
-Flower 6: A boquet of 12 orange tulips 
+Flower 6: A boquet of 12 orange tulips, a perfect spring boquet! 
 */

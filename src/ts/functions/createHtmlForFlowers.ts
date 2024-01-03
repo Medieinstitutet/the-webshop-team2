@@ -46,6 +46,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
 
     flowerDiv.addEventListener ("click", () => {
       const productModal = document.createElement("div");
+      const productModalContainer = document.createElement("div");
       const productModalImg = document.createElement("img")
       const productModalTitle = document.createElement("h3")
       const productModalInfo = document.createElement("p")
@@ -54,7 +55,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
 
       productModalImg.src = flowerList[i].img
       productModalTitle.innerHTML = flowerList[i].title
-      productModalInfo.innerHTML = flowerList[i].info
+      productModalInfo.innerHTML = flowerList[i].productinfo
       productModalPrice.innerHTML = flowerList[i].price + " kr"
 
       
@@ -63,20 +64,23 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       productModal.className = "productModal";
       productModalClose.className = "bi bi-x-lg"
       productModalClose.id = "productModalClose"
+      productModalContainer.className = "productModalContainer";
       
       if (productModalClose) {        
         productModalClose.addEventListener("click", () =>  {
-          productModal.style.display = "none"
+          /* productModal.style.display = "none" */
+          productModal.remove();
         })
       }
 
       document.body.appendChild(productModal);
+      productModal.appendChild(productModalContainer)
       productModal.appendChild(productModalImg)
-      productModal.appendChild(productModalTitle)
-      productModal.appendChild(productModalInfo)
-      productModal.appendChild(productModalPrice)
+      productModalContainer.appendChild(productModalTitle)
+      productModalContainer.appendChild(productModalInfo)
+      productModalContainer.appendChild(productModalPrice)
       productModal.appendChild(productModalClose)
-      productModal.style.display = "block";
+      /* productModal.style.display = "block"; */
     });
 
 

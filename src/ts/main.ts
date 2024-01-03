@@ -114,3 +114,26 @@ finalPaymentBtn.addEventListener ("click", () => {
 })
 
 
+export const addToCart = (flower:Flowers) => {
+  const isItemInCart = cartList.find((cartItem) => cartItem.id === flower.id);
+  if (!isItemInCart) {
+    const cartFlower = new Flowers(
+      flower.img,
+      flower.title,
+      flower.info,
+      flower.price,
+      1,
+      flower.id
+    )
+    cartList.push(cartFlower)
+    console.log("det finns inte");
+    console.log(cartList);
+    
+  }else{
+    console.log("det finns redan");
+    console.log(cartList);
+        
+  }
+  
+  }
+  

@@ -1,4 +1,4 @@
-import { cartList } from "../main";
+import { addToCart, cartList } from "../main";
 import { Flowers } from "../modules/flowersClass";
 import { countTotalPrice } from "./countTotalPrice";
 import { getCartListLen } from "./getCartListLen";
@@ -32,17 +32,14 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
 
 
     /* const thisId = 0; */ 
-    flowerBuyBtn.addEventListener("click", () => {
-      
-      cartList.push(flowerList[i]);
-      console.log(cartList);
-      
-      countTotalPrice();
-      getCartListLen();
-      }
-
-      
-    );
+    flowerBuyBtn.addEventListener("click", () => {addToCart(flowerList[i])});
+    console.log(cartList);
+    
+    /*       cartList.push(flowerList[i]);
+          console.log(cartList);
+          
+          countTotalPrice();
+          getCartListLen(); */
 
     flowerDiv.addEventListener ("click", () => {
       const productModal = document.createElement("div");

@@ -130,7 +130,7 @@ export const addToCart = (flower:Flowers) => {
     console.log("det finns!")
   }
 
-  }  */
+  }  
 
   
   

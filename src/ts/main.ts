@@ -112,3 +112,5 @@ finalPaymentBtn.addEventListener ("click", () => {
     loader.style.display = "none";
   }, 1000);
 })
+
+

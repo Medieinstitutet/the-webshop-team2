@@ -22,6 +22,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerPrice.innerHTML = flowerList[i].price + " kr";
     flowerBuyBtn.innerHTML = "Buy";
 
+    flowerDiv.id = "flowerDiv";
     flowerDiv.className = "flowerDiv";
     flowerImg.className = "flowerImg";
     flowerTitle.className = "flowerTitle";
@@ -40,7 +41,17 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
         console.log("id var inte samma!");
       }
       }
+
+      
     );
+
+    flowerDiv.addEventListener ("click", () => {
+      const productModal = document.createElement("div");
+      productModal.id = "productModal";
+      productModal.className = "productModal";
+      document.body.appendChild(productModal);
+      productModal.style.display = "block";
+    });
 
 
     flowerContainer?.appendChild(flowerBtnContainer);
@@ -52,3 +63,5 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerBtnContainer?.appendChild(flowerBuyBtn);
   }
 }
+
+

@@ -1,9 +1,7 @@
-import {  addToCart,  cartList } from "../main";
-import { CartItem } from "../modules/cartItem";
+import {  addToCart } from "../main";
 import { Flowers } from "../modules/flowersClass";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
-import { createHtmlForCart } from "./createHtmlForCart";
 import { getCartListLen } from "./getCartListLen";
 
 export function createHtmlForFlowers(flowerList: Flowers[]) {
@@ -75,7 +73,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     
     });
       
-      if (productModalClose) {        
+      if (productModalClose) {
         productModalClose.addEventListener("click", () =>  {
           productModal.remove();
         })

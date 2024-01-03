@@ -15,13 +15,12 @@ import {
   flower6,
 } from "./modules/flowerObjects";
 import { Flowers } from "./modules/flowersClass";
-import { Quantity } from "./modules/quantity";
+import { CartItem, Quantity } from "./modules/cartItem";
 
 
 export const flowerList: Flowers[] = [flower1, flower2, flower3, flower4, flower5, flower6];
-export let cartList: Flowers[] = [];
-export let quantityList: number[] = [];
-export let totalQuantity: number = 0;
+export let cartList: CartItem[] = [];
+
 
 createHtmlForFlowers(flowerList);
 
@@ -116,31 +115,18 @@ finalPaymentBtn.addEventListener ("click", () => {
 })
 
 
-export const addToCart = (flower:Flowers) => {
-  const isItemInCart = cartList.find((cartItem) => cartItem.id === flower.id);
-  if (!isItemInCart) {
-    const cartFlower = new Flowers(
-      flower.img,
-      flower.title,
-      flower.info,
-      flower.productinfo,
-      flower.price,
-      flower.id,
-      )
-      quantity: 1; 
-    cartList.push(cartFlower)
-    totalQuantity += 1;
-    console.log("det finns inte");
-    console.log("totalQuantity i if:" + totalQuantity);
-    
-  }else{
-    console.log("det finns redan");
-    console.log(flower.quantity);
-    flower.quantity += 1;  
-    totalQuantity += 1;
-    console.log("totalQuantity i else:" + totalQuantity);
-    
+ export const addToCart = (flower:Flowers) => {
+
+  const isItemInCart = cartList.indexOf((cartItem) => cartItem.product.id === flower.id);
+  if (isItemInCart < 0) {
+    const cartItem = new CartItem(flower, 1);
+    cartList.push(cartItem);
+  }
+  else {
+    cartList[isItemInCart].quantity++;
   }
 
-  }
+  } 
+
+  
   

@@ -1,4 +1,5 @@
 import { addToCart, cartList } from "../main";
+import { CartItem } from "../modules/cartItem";
 import { Flowers } from "../modules/flowersClass";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
@@ -35,7 +36,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
 
     /* const thisId = 0; */ 
     flowerBuyBtn.addEventListener("click", () => {addToCart(flowerList[i])
-    
+   
       countTotalPrice();
       getCartListLen();
     });

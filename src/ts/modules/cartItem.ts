@@ -1,5 +1,5 @@
 import { Flowers } from "./flowersClass";
 
-export class Quantity {
+export class CartItem {
     constructor(public product: Flowers, public quantity: number) {}
   }

@@ -1,9 +1,11 @@
-import { addToCart, cartList} from "../main";
+import { cartList } from "../main";
+import { addToCart } from "./addToCart";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
 import { createHtmlForCart } from "./createHtmlForCart";
 import { createHtmlForTotalAmount } from "./createHtmlForTotalAmount";
 import { getCartListLen } from "./getCartListLen";
+import { simulatePurchase } from "./simulatePurchase";
 
 export function createHtmlForPayment() {
   document.body.style.overflow = "hidden";
@@ -35,7 +37,7 @@ export function createHtmlForPayment() {
       countTotalPrice();
       getCartListLen();
       createHtmlForCart(cartList);
-      createHtmlForTotalAmount()
+      createHtmlForTotalAmount();
     });
 
     removeFlowerBtn.addEventListener("click", () => {
@@ -49,9 +51,8 @@ export function createHtmlForPayment() {
       countTotalPrice();
       getCartListLen();
       createHtmlForCart(cartList);
-      createHtmlForTotalAmount()
+      createHtmlForTotalAmount();
     });
-
 
     flowerImg.src = cartList[i].product.img;
     flowerTitle.innerHTML = cartList[i].product.title;
@@ -73,3 +74,10 @@ export function createHtmlForPayment() {
     flowerDiv.appendChild(addFlowerBtn);
   }
 }
+const finalPaymentBtn = document.getElementById(
+  "finalPaymentBtn"
+) as HTMLButtonElement;
+
+finalPaymentBtn.addEventListener("click", () => {
+  simulatePurchase();
+});

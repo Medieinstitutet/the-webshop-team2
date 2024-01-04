@@ -2,26 +2,26 @@ import { Flowers } from "./flowersClass";
 
 export const flower1 = new Flowers(
   "/src/img/flower1.png",
-  "Roses 1",
-  "A bouquet of red roses",
-  "lorem loremloremloremloremloremloremloremloremloremlorem",
+  "Yellow tulips",
+  "A bouquet of yellow tulips",
+  "A bouquet of yellow tulips is a stunning and vibrant display that exudes warmth, joy, and elegance. Each tulip is characterized by its graceful, slender stem and a beautifully cup-shaped blossom. The radiant yellow hue of the petals is reminiscent of sunshine, symbolizing happiness, positivity, and friendship.",
   199,
   1
 );
 export const flower2 = new Flowers(
   "/src/img/flower2.png",
-  "Roses 2",
-  "A bouquet of red roses",
-  "lorem loremloremloremloremloremloremloremloremloremlorem",
+  "Red tulips",
+  "A bouquet of red tulips",
+  "A bouquet of red tulips is a striking and passionate arrangement that captivates with its bold and vibrant beauty. Each tulip in the bouquet boasts a long, slender stem that supports a stunning cup-shaped blossom with velvety red petals. The rich and intense red color of the tulips conveys a sense of deep love, romance, and affection.",
   199,
   2
 );
 export const flower3 = new Flowers(
-  "/src/img/flower3.jpg",
+  "/src/img/flower3.png",
   "Roses 3",
   "A bouquet of red roses",
   "lorem loremloremloremloremloremloremloremloremloremlorem",
-  199,
+  449,
   3
 );
 export const flower4 = new Flowers(

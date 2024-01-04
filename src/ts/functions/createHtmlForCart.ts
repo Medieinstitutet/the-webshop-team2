@@ -1,5 +1,6 @@
-import { addToCart, cartContainer } from "../main";
-import { CartItem } from "../modules/cartItem";
+import { cartContainer } from "../main";
+import { CartItem } from "../modules/cartItemClass";
+import { addToCart } from "./addToCart";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
 import { getCartListLen } from "./getCartListLen";
@@ -48,8 +49,6 @@ export function createHtmlForCart(cartList: CartItem[]) {
       getCartListLen();
     });
 
-  
-
     flowerImg.src = cartList[i].product.img;
     flowerTitle.innerHTML = cartList[i].product.title;
     flowerPrice.innerHTML = cartList[i].product.price + " kr";
@@ -66,7 +65,7 @@ export function createHtmlForCart(cartList: CartItem[]) {
   const closeCartContainer = document.getElementById(
     "close-cart-container"
   ) as HTMLButtonElement;
-  
+
   closeCartContainer.addEventListener("click", () => {
     cartContainer.style.display = "none";
   });

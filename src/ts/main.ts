@@ -14,9 +14,8 @@ import {
   flower6,
 } from "./modules/flowerObjects";
 import { Flowers } from "./modules/flowersClass";
-import { CartItem } from "./modules/cartItem";
+import { CartItem } from "./modules/cartItemClass";
 import { createHtmlForTotalAmount } from "./functions/createHtmlForTotalAmount";
-import { simulatePurchase } from "./functions/simulatePurchase";
 
 export const flowerList: Flowers[] = [
   flower1,
@@ -67,29 +66,9 @@ if (checkoutBtn) {
   checkoutBtn.addEventListener("click", () => {
     paymentContainer.style.display = "block";
     createHtmlForCart(cartList);
-    createHtmlForTotalAmount()
+    createHtmlForTotalAmount();
   });
 }
 
 createMenu();
 getCartListLen();
-
-export const finalPaymentBtn = document.getElementById(
-  "finalPaymentBtn"
-) as HTMLButtonElement;
-
-finalPaymentBtn.addEventListener("click", () => {
-  simulatePurchase();
-});
-
-export const addToCart = (flower: Flowers) => {
-  const isItemInCart = cartList.find(
-    (cartItem) => cartItem.product.id === flower.id
-  );
-  if (!isItemInCart) {
-    const cartItem = new CartItem(flower, 1);
-    cartList.push(cartItem);
-  } else {
-    isItemInCart.quantity++;
-  }
-};

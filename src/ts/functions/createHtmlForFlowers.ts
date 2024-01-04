@@ -1,5 +1,5 @@
-import { addToCart } from "../main";
 import { Flowers } from "../modules/flowersClass";
+import { addToCart } from "./addToCart";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
 import { getCartListLen } from "./getCartListLen";
@@ -53,7 +53,6 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       productModalPrice.innerHTML = flowerList[i].price + " kr";
       addToCartbtn.innerHTML = "Add to cart";
 
-    
       productModal.id = "productModal";
       productModal.className = "productModal";
       productModalClose.className = "bi bi-x-lg";

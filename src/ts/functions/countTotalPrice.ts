@@ -7,10 +7,10 @@ export const countTotalPrice = () => {
   if (totalAmount) {
     let totalPrice = 0;
     for (let i = 0; i < cartList.length; i++) {
-      totalPrice += cartList[i].product.price;
+      totalPrice += cartList[i].product.price * cartList[i].quantity;
     }
     for (let i = 0; i < totalAmount.length; i++) {
-      totalAmount[i].innerHTML = "Total Amount:" + totalPrice + "kr";
+      totalAmount[i].innerHTML = "Total Amount: " + totalPrice + " kr";
     }
   }
 };

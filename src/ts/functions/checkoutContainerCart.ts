@@ -8,10 +8,12 @@ export const checkoutContainerCart = () => {
   ) as HTMLDivElement;
   if (!document.getElementById("checkout-Container")) {
     const checkoutContainer = document.createElement("div");
+    const line = document.createElement("hr");
     const totalAmountText = document.createElement("h3");
 
     checkoutContainer.id = "checkout-Container";
     totalAmountText.className = "totalAmount-text";
+    line.className = "line";
 
     totalCartContainer.appendChild(checkoutContainer);
     checkoutContainer.appendChild(totalAmountText);
@@ -20,6 +22,7 @@ export const checkoutContainerCart = () => {
     checkoutBtn.innerHTML = "Checkout";
     checkoutBtn.className = "checkoutBtn";
     checkoutBtn.id = "checkoutBtn";
+    checkoutContainer.appendChild(line);
     checkoutContainer.appendChild(checkoutBtn);
     countTotalPrice();
 

@@ -9,8 +9,8 @@
 }
 
 body {
-  font-family: "Brush Script MT", cursive;
-  overflow-x: hidden;
+ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ overflow-x: hidden;
 }
 .main {
   display: flex;
@@ -149,7 +149,11 @@ body {
     z-index: 100;
     color: rgb(249, 246, 246);
     font-size: 50px;
-  }
+    font-family: 'Caveat', cursive;
+    @include m.for-size(tablet) {
+      font-size: 6rem;
+    }
+ }
 }
 
 /* --------------preview imgs-------------- */

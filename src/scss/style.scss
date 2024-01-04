@@ -279,21 +279,19 @@ body {
 }
 
 .productModal {
+  padding: 4% 10%;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   position: fixed;
-  z-index: 300;
+  z-index: 230;
   top: 6%;
-  width: 100%;
-  height: 100%;
-  padding: 0 10%;
+  width: 100vw;
+  height: 100vh;
   background-color: beige;
-  overflow-x: hidden;
-  @include m.for-size($tablet){
-    top: 30%;
-    height: 90vh;
-
-
+  @include m.for-size(tablet){
+    top: 10%;
+    height: 90%;
+    flex-direction: row;
   }
 }
 
@@ -303,9 +301,19 @@ body {
   justify-content: center;
   align-items: center;
   &__img {
+    width: 200px;
+    height: 200px;
+    }
+    @include m.for-size(tablet){
+     
+    }
+}
+
+.productModalContainer__img {
+  @include m.for-size(tablet){
     width: 400px;
     height: 400px;
-  }
+}
 }
 #productModalClose {
   position: relative;

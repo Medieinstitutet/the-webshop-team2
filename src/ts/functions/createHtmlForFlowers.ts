@@ -61,6 +61,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       productModalImg.className = "productModalContainer__img";
 
       addToCartbtn.addEventListener("click", () => {
+        addToCart(flowerList[i]);
         countTotalPrice();
         checkIfCartIsEmpty();
         getCartListLen();
@@ -73,13 +74,13 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       }
 
       document.body.appendChild(productModal);
-      productModal.appendChild(productModalContainer);
+      productModal.appendChild(productModalClose);
       productModal.appendChild(productModalImg);
+      productModal.appendChild(productModalContainer);
       productModalContainer.appendChild(productModalTitle);
       productModalContainer.appendChild(productModalInfo);
       productModalContainer.appendChild(productModalPrice);
       productModalContainer.appendChild(addToCartbtn);
-      productModal.appendChild(productModalClose);
     });
 
     flowerContainer?.appendChild(flowerBtnContainer);

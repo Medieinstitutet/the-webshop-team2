@@ -1,7 +1,8 @@
-import { addToCart, cartList, pay } from "../main";
+import { addToCart, cartList} from "../main";
 import { checkIfCartIsEmpty } from "./checkIfCartIsEmpty";
 import { countTotalPrice } from "./countTotalPrice";
 import { createHtmlForCart } from "./createHtmlForCart";
+import { createHtmlForTotalAmount } from "./createHtmlForTotalAmount";
 import { getCartListLen } from "./getCartListLen";
 
 export function createHtmlForPayment() {
@@ -34,7 +35,7 @@ export function createHtmlForPayment() {
       countTotalPrice();
       getCartListLen();
       createHtmlForCart(cartList);
-      pay();
+      createHtmlForTotalAmount()
     });
 
     removeFlowerBtn.addEventListener("click", () => {
@@ -48,7 +49,7 @@ export function createHtmlForPayment() {
       countTotalPrice();
       getCartListLen();
       createHtmlForCart(cartList);
-      pay();
+      createHtmlForTotalAmount()
     });
 
 

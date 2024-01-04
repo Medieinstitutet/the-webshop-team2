@@ -1,7 +1,6 @@
 import "./../scss/style.scss";
 import { checkIfCartIsEmpty } from "./functions/checkIfCartIsEmpty";
 import { checkoutContainerCart } from "./functions/checkoutContainerCart";
-import { countTotalPrice } from "./functions/countTotalPrice";
 import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
 import { createMenu } from "./functions/createMenu";
@@ -16,6 +15,8 @@ import {
 } from "./modules/flowerObjects";
 import { Flowers } from "./modules/flowersClass";
 import { CartItem } from "./modules/cartItem";
+import { createHtmlForTotalAmount } from "./functions/createHtmlForTotalAmount";
+import { simulatePurchase } from "./functions/simulatePurchase";
 
 export const flowerList: Flowers[] = [
   flower1,
@@ -66,51 +67,19 @@ if (checkoutBtn) {
   checkoutBtn.addEventListener("click", () => {
     paymentContainer.style.display = "block";
     createHtmlForCart(cartList);
-    pay();
+    createHtmlForTotalAmount()
   });
 }
 
 createMenu();
 getCartListLen();
 
-export const pay = () => {
-  const div = document.getElementById("payment-pay") as HTMLDivElement;
-  const h3 = document.getElementById("totalAmount-text") as HTMLHeadingElement;
-  if (!h3) {
-    const h3 = document.createElement("h3");
-
-    h3.className = "totalAmount-text";
-    h3.id = "totalAmount-text";
-    h3.innerHTML = "";
-    div.appendChild(h3);
-  }
-  countTotalPrice();
-};
-
 export const finalPaymentBtn = document.getElementById(
   "finalPaymentBtn"
 ) as HTMLButtonElement;
 
 finalPaymentBtn.addEventListener("click", () => {
-  const simLoad = document.getElementById("simLoad") as HTMLDivElement;
-  simLoad.style.display = "block";
-
-  setTimeout(() => {
-    const simTitle = document.getElementById("simTitle") as HTMLDivElement;
-    const loader = document.getElementById("loader") as HTMLDivElement;
-    simTitle.innerHTML = "purchase succeeded!";
-    const orderNumber = document.createElement("p");
-    orderNumber.id = "orderNumber";
-    orderNumber.innerHTML = "Ordernumber: 123456";
-    simLoad.appendChild(orderNumber);
-    console.log(cartList);
-    cartList.splice(0);
-    console.log(cartList);
-    setTimeout(() => {
-      simLoad.style.display = "none";
-    }, 1000);
-    loader.style.display = "none";
-  }, 1000);
+  simulatePurchase();
 });
 
 export const addToCart = (flower: Flowers) => {

@@ -51,6 +51,7 @@ export function createHtmlForPayment() {
       pay();
     });
 
+
     flowerImg.src = cartList[i].product.img;
     flowerTitle.innerHTML = cartList[i].product.title;
     flowerPrice.innerHTML = cartList[i].product.price + " kr";

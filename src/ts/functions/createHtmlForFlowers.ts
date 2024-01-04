@@ -57,8 +57,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       productModalPrice.innerHTML = flowerList[i].price + " kr"
       addToCartbtn.innerHTML = "Add to cart";
 
-      
-
+    
       productModal.id = "productModal";
       productModal.className = "productModal";
       productModalClose.className = "bi bi-x-lg";
@@ -70,9 +69,6 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
           countTotalPrice();
           checkIfCartIsEmpty();
           getCartListLen(); 
-      
-          
-    
     });
       
       if (productModalClose) {        

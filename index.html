@@ -28,7 +28,7 @@
 
         <div class="header__navbar--cartIcon">
           <a class="bi-bag-heart" id="cartbtn"></a>
-          <p class="cartLen" id="cartLen"></p>
+          <p class="cartLen" id="cartLen">0</p>
         </div>
       </navbar>
     </header>
@@ -100,10 +100,11 @@
     <!----------------------------------payment------------------------------->
     <div id="payment-container" class="paymentContainer">
       <div class="simLoad" id="simLoad">
-        <h3 class="simTitle" id="simTitle">Please wait purchase in progress</h3>
-        <div class="loader" id="loader"></div>
+        <div class="simLoadCenter" id="simLoadCenter">
+          <h3 class="simTitle" id="simTitle">Please wait purchase in progress</h3>
+          <div class="loader" id="loader"></div>
+        </div>
       </div>
-
       <div class="paymentContainer__close" id="closePaymentContainer">
         <p class="bi bi-x-lg"></p>
       </div>

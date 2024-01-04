@@ -5,7 +5,7 @@ export const createHamburger = () => {
 
   hamburgerBtn.addEventListener("click", () => {
     document.body.style.overflow = "hidden";
-    const humMenu = document.createElement("div");
+    const hamburgerContainer = document.createElement("div");
     const closeHumMenu = document.createElement("button");
     const startLink = document.createElement("a");
     const bestSellingLink = document.createElement("a");
@@ -21,29 +21,33 @@ export const createHamburger = () => {
 
     startLink.addEventListener("click", () => {
       document.body.style.overflow = "visible";
-      humMenu.remove();
+      hamburgerContainer.remove();
     });
 
     bestSellingLink.addEventListener("click", () => {
       document.body.style.overflow = "visible";
-      humMenu.remove();
+      hamburgerContainer.remove();
     });
 
     productsLink.addEventListener("click", () => {
       document.body.style.overflow = "visible";
-      humMenu.remove();
+      hamburgerContainer.remove();
     });
 
     closeHumMenu.addEventListener("click", () => {
       document.body.style.overflow = "visible";
-      humMenu.remove();
+      hamburgerContainer.remove();
     });
-    humMenu.className = "humMenu";
-    closeHumMenu.className = "bi bi-x-lg humMenu__closeBtn";
-    document.body.appendChild(humMenu);
-    humMenu.appendChild(closeHumMenu);
-    humMenu.appendChild(startLink);
-    humMenu.appendChild(bestSellingLink);
-    humMenu.appendChild(productsLink);
+    hamburgerContainer.className = "hamburgerContainer";
+    closeHumMenu.className = "bi bi-x-lg hamburgerContainer__closeBtn";
+    startLink.className ="hamburgerContainer__startLink";
+    bestSellingLink.className ="hamburgerContainer__startLink";
+    productsLink.className = "hamburgerContainer__startLink";
+
+    document.body.appendChild(hamburgerContainer);
+    hamburgerContainer.appendChild(closeHumMenu);
+    hamburgerContainer.appendChild(startLink);
+    hamburgerContainer.appendChild(bestSellingLink);
+    hamburgerContainer.appendChild(productsLink);
   });
 };

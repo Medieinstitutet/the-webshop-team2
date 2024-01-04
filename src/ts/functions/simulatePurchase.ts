@@ -22,7 +22,8 @@ export function simulatePurchase() {
     cartList.splice(0);
     setTimeout(() => {
       simLoad.style.display = "none";
-    }, 4000);
+      window.location.href = "/index.html";
+    }, 3000);
     loader.style.display = "none";
   }, 4000);
 }

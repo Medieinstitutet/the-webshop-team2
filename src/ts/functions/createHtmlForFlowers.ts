@@ -20,7 +20,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerTitle.innerHTML = flowerList[i].title;
     flowerInfo.innerHTML = flowerList[i].info;
     flowerPrice.innerHTML = flowerList[i].price + " kr";
-    flowerBuyBtn.innerHTML = "Buy";
+    flowerBuyBtn.innerHTML = "Add to cart";
 
     flowerBtnContainer.className = "flowerBtnContainer";
     flowerDiv.id = "flowerDiv";
@@ -85,7 +85,6 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
     flowerContainer?.appendChild(flowerBtnContainer);
     flowerBtnContainer.appendChild(flowerImg);
     flowerBtnContainer.appendChild(flowerDiv);
-    //flowerDiv.appendChild(flowerImg);
     flowerDiv.appendChild(flowerTitle);
     flowerDiv.appendChild(flowerInfo);
     flowerDiv.appendChild(flowerPrice);

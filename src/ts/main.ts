@@ -1,9 +1,9 @@
 import "./../scss/style.scss";
 import { checkIfCartIsEmpty } from "./functions/checkIfCartIsEmpty";
-import { checkoutContainerCart } from "./functions/checkoutContainerCart";
+import { checkoutContainerCart } from "./functions/createHtmlforCheckout";
 import { createHtmlForCart } from "./functions/createHtmlForCart";
 import { createHtmlForFlowers } from "./functions/createHtmlForFlowers";
-import { createMenu } from "./functions/createMenu";
+import { createHamburger } from "./functions/createHamburger";
 import { getCartListLen } from "./functions/getCartListLen";
 import {
   flower1,
@@ -70,5 +70,5 @@ if (checkoutBtn) {
   });
 }
 
-createMenu();
+createHamburger();
 getCartListLen();

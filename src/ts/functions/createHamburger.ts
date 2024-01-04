@@ -1,4 +1,4 @@
-export const createMenu = () => {
+export const createHamburger = () => {
   const hamburgerBtn = document.getElementById(
     "hamburger-btn"
   ) as HTMLButtonElement;

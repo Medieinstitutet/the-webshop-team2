@@ -12,10 +12,8 @@ export const checkIfCartIsEmpty = () => {
   }
   if (cartList.length > 0 && emptyContainr) {
     emptyContainr.remove();
-    cartContainer?.classList.remove("nice");
   }
   if (cartList.length === 0) {
     checkoutContainer?.remove();
-    cartContainer?.classList.add("nice");
   }
 };

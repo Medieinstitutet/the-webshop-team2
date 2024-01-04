@@ -59,6 +59,7 @@ export function createHtmlForFlowers(flowerList: Flowers[]) {
       productModalClose.id = "productModalClose";
       productModalContainer.className = "productModalContainer";
       productModalImg.className = "productModalContainer__img";
+      addToCartbtn.className = "addToCartbtn";
 
       addToCartbtn.addEventListener("click", () => {
         addToCart(flowerList[i]);

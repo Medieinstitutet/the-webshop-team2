@@ -1,6 +1,5 @@
 @use "./variables" as v;
 
-
 @mixin for-size($size) {
   @if $size == tablet {
     @media screen and (min-width: v.$tablet) {
@@ -19,6 +18,8 @@
   border-radius: 12px;
   height: 2rem;
   padding: 0.5rem 2rem;
+  border: 1px solid rgb(172, 172, 172);
+  margin: 0.5rem 0.5rem;
 }
 
 @mixin hoverEffect {

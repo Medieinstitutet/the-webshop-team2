@@ -155,7 +155,7 @@ body {
   justify-content: center;
 
   &__title {
-    margin-top: 3rem;
+    margin: 3rem 0 2rem 0;
     font-size: 1.5rem;
   }
 }
@@ -223,15 +223,12 @@ body {
   opacity: 5;
 }
 /* ---------producter----------- */
-.flowerBtnContainer {
-  border: 1px solid black;
-}
 #products {
   h3 {
     display: flex;
     justify-content: center;
-    border: 2px solid rosybrown;
     margin: 10px 0 10px 0;
+    font-size: 2rem;
   }
 }
 
@@ -244,14 +241,14 @@ body {
   }
 }
 
-#flower-container,
-#flower-container2 {
+#flower-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   @include m.for-size(tablet) {
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 2rem;
   }
 }
@@ -268,13 +265,14 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2px solid black;
+  border: 1px solid rgb(172, 172, 172);
   cursor: pointer;
   background-color: rgb(240, 196, 218);
   border-radius: 0 0 12px 12px;
 }
 
 .flowerImg {
+  border: 1px solid rgb(172, 172, 172);
   width: 400px;
   height: 400px;
   object-fit: contain;

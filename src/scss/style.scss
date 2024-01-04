@@ -535,3 +535,18 @@ body {
     transform: rotate(360deg);
   }
 }
+.footer {
+  height: 20vh;
+  padding: 5rem;
+  border: 1px solid rgb(172, 172, 172);
+  margin: 1rem auto;
+  max-width: 1280px;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    & > a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import { cartList } from "../main";
 
 export function simulatePurchase () {
 const simLoad = document.getElementById("simLoad") as HTMLDivElement;
-simLoad.style.display = "block";
+simLoad.classList.add("showSimLoad"); 
 
 setTimeout(() => {
   const simTitle = document.getElementById("simTitle") as HTMLDivElement;

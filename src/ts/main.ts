@@ -16,6 +16,7 @@ import {
 import { Flowers } from "./modules/flowersClass";
 import { CartItem } from "./modules/cartItemClass";
 import { createHtmlForTotalAmount } from "./functions/createHtmlForTotalAmount";
+import { updateWindowSize } from "./functions/updateWindowSize";
 
 export const flowerList: Flowers[] = [
   flower1,
@@ -72,3 +73,5 @@ if (checkoutBtn) {
 
 createHamburger();
 getCartListLen();
+
+window.addEventListener("resize", updateWindowSize);

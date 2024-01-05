@@ -39,9 +39,10 @@ export const createHamburger = () => {
       hamburgerContainer.remove();
     });
     hamburgerContainer.className = "hamburgerContainer";
+    hamburgerContainer.id = "hamburgerContainer";
     closeHumMenu.className = "bi bi-x-lg hamburgerContainer__closeBtn";
-    startLink.className ="hamburgerContainer__startLink";
-    bestSellingLink.className ="hamburgerContainer__startLink";
+    startLink.className = "hamburgerContainer__startLink";
+    bestSellingLink.className = "hamburgerContainer__startLink";
     productsLink.className = "hamburgerContainer__startLink";
 
     document.body.appendChild(hamburgerContainer);

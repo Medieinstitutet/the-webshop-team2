@@ -30,7 +30,7 @@ export const checkoutContainerCart = () => {
     checkoutBtn.addEventListener("click", () => {
       paymentContainer.style.display = "block";
       createHtmlForPayment();
-    createHtmlForTotalAmount()
+      createHtmlForTotalAmount()
       
     });
   }
